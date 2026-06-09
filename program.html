@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Programs | STEM Discovery Club</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+ :root{--pink:#FFB3C6;--pink-light:#FFD6E0;--pink-dark:#E87D9A;--yellow:#FFE566;--yellow-light:#FFF3A0;--yellow-dark:#F5C400;--mint:#B5EAD7;--mint-light:#D4F5E9;--mint-dark:#5CC8A0;--sky:#AED9F7;--sky-light:#D6EEFF;--sky-dark:#5AABDF;--lavender:#C3B1E1;--lavender-light:#E5DEFF;--peach:#FFCBA4;--peach-light:#FFE8D6;--coral:#FF8C69;--white:#FFFDF7;--dark:#2D2A45;--dark2:#4A4470;--gray:#7B7A99;--radius:20px;--radius-sm:12px;--radius-pill:50px;}
+ *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+ html{scroll-behavior:smooth;}
+ body{font-family:'Nunito',sans-serif;background:var(--mint-light);color:var(--dark);line-height:1.65;overflow-x:hidden;}
+
+ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,253,247,0.97);backdrop-filter:blur(14px);border-bottom:3px solid var(--pink-light);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:68px;}
+ .nav-logo{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:12px;}
+ .logo-bubble{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--yellow) 0%,var(--pink) 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 var(--yellow-dark);border:2px dashed rgba(255,255,255,0.6);flex-shrink:0;}
+ .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center;}
+ .nav-links a{text-decoration:none;color:var(--dark2);font-size:0.92rem;font-weight:800;font-family:'Baloo 2',cursive;transition:color .2s;}
+ .nav-links a:hover{color:var(--pink-dark);}
+ .nav-links a.active{color:var(--pink-dark);border-bottom:2.5px solid var(--pink-dark);padding-bottom:2px;}
+ .nav-links .btn-donate{background:var(--pink);color:var(--dark);padding:9px 22px;border-radius:var(--radius-pill);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);transition:transform .15s,box-shadow .15s;}
+ .nav-links .btn-donate:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--pink-dark);background:var(--yellow);border-color:var(--yellow-dark);}
+
+ @keyframes shimmer{to{left:160%}}
+ .img-ph{border:3px dashed rgba(100,80,180,0.3);border-radius:var(--radius);background:linear-gradient(135deg,var(--yellow-light) 0%,var(--mint-light) 50%,var(--pink-light) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s;cursor:default;}
+ .img-ph:hover{border-color:var(--lavender);transform:translateY(-4px) rotate(1deg);}
+ .img-ph-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+ .img-ph-label{font-size:0.8rem;font-weight:800;color:var(--dark2);text-align:center;padding:0 16px;font-family:'Baloo 2',cursive;letter-spacing:.04em;}
+ .img-ph-sub{font-size:0.72rem;color:var(--gray);font-weight:600;text-align:center;padding:0 16px;}
+ .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);animation:shimmer 2.8s infinite;}
+
+ .page-hero{padding:120px 5vw 70px;background:var(--mint-light);position:relative;overflow:hidden;}
+ .page-hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(circle,rgba(100,180,150,0.15) 2px,transparent 2px);background-size:36px 36px;}
+ .page-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+ .page-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--mint-dark);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
+ .page-title{font-family:'Fredoka One',cursive;font-size:clamp(2rem,4vw,3rem);line-height:1.15;color:var(--dark);margin-bottom:1rem;}
+ .page-desc{font-size:1rem;color:var(--dark2);max-width:560px;font-weight:700;}
+
+ .programs-section{padding:70px 5vw 80px;background:var(--mint-light);}
+ .programs-inner{max-width:1100px;margin:0 auto;}
+ .programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:1rem;}
+ .program-card{background:#fff;border-radius:var(--radius);border:2.5px solid var(--pink);box-shadow:0 6px 0 var(--pink-dark);overflow:hidden;transition:transform .2s,box-shadow .2s;}
+ .program-card:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 10px 0 var(--pink-dark);}
+ .program-card:nth-child(2){border-color:var(--sky);box-shadow:0 6px 0 var(--sky-dark);}
+ .program-card:nth-child(2):hover{box-shadow:0 10px 0 var(--sky-dark);}
+ .program-card:nth-child(3){border-color:var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);}
+ .program-card:nth-child(3):hover{box-shadow:0 10px 0 var(--yellow-dark);}
+ .program-card:nth-child(4){border-color:var(--lavender);box-shadow:0 6px 0 #9980CC;}
+ .program-card:nth-child(4):hover{box-shadow:0 10px 0 #9980CC;}
+ .program-card-img{height:160px;}
+ .program-card-body{padding:24px 26px 28px;}
+ .program-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+ .program-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:var(--pink-light);border:2px solid var(--pink);}
+ .program-card:nth-child(2) .program-icon{background:var(--sky-light);border-color:var(--sky);}
+ .program-card:nth-child(3) .program-icon{background:var(--yellow-light);border-color:var(--yellow);}
+ .program-card:nth-child(4) .program-icon{background:var(--lavender-light);border-color:var(--lavender);}
+ .program-card h3{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--dark);margin-bottom:10px;}
+ .program-card p{font-size:0.9rem;color:var(--dark2);font-weight:600;line-height:1.7;}
+ .program-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+ .program-tag{padding:4px 12px;border-radius:var(--radius-pill);font-size:0.75rem;font-weight:800;font-family:'Baloo 2',cursive;background:var(--pink-light);color:var(--dark);border:1.5px solid var(--pink);}
+ .program-card:nth-child(2) .program-tag{background:var(--sky-light);border-color:var(--sky);}
+ .program-card:nth-child(3) .program-tag{background:var(--yellow-light);border-color:var(--yellow);}
+ .program-card:nth-child(4) .program-tag{background:var(--lavender-light);border-color:var(--lavender);}
+
+ /* Gallery */
+ .gallery-section{padding:80px 5vw;background:var(--white);}
+ .gallery-inner{max-width:1100px;margin:0 auto;}
+ .section-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--pink-dark);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
+ .section-title{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3.5vw,2.5rem);line-height:1.15;color:var(--dark);margin-bottom:1.2rem;}
+ .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:2rem;}
+ .gallery-item{border-radius:var(--radius);overflow:hidden;}
+ .gallery-item.tall{grid-row:span 2;}
+
+ /* CTA strip */
+ .cta-strip{padding:70px 5vw;background:var(--yellow);text-align:center;border-top:4px solid var(--yellow-dark);border-bottom:4px solid var(--yellow-dark);position:relative;}
+ .cta-strip::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.3) 2px,transparent 2px);background-size:28px 28px;}
+ .cta-strip>*{position:relative;z-index:1;}
+ .cta-strip h2{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3.5vw,2.5rem);margin-bottom:1rem;}
+ .cta-strip p{font-size:1rem;color:var(--dark2);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;font-weight:700;}
+ .btn-coral{background:var(--coral);color:#fff;padding:16px 38px;border-radius:var(--radius-pill);font-family:'Baloo 2',cursive;font-weight:800;font-size:1.05rem;text-decoration:none;display:inline-block;border:2.5px solid var(--dark);box-shadow:0 6px 0 var(--dark);transition:transform .15s,box-shadow .15s;}
+ .btn-coral:hover{transform:translateY(-3px);box-shadow:0 9px 0 var(--dark);}
+
+ .wave-divider{width:100%;overflow:hidden;line-height:0;}
+ .wave-divider svg{display:block;width:100%;}
+ footer{background:var(--dark);color:rgba(255,255,255,.55);padding:60px 5vw 32px;}
+ .footer-inner{max-width:1100px;margin:0 auto;}
+ .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+ .footer-brand p{font-size:0.88rem;margin-top:14px;line-height:1.75;max-width:280px;font-weight:600;}
+ .footer-col h4{font-family:'Fredoka One',cursive;font-size:0.95rem;color:var(--yellow);margin-bottom:18px;}
+ .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+ .footer-col ul a{text-decoration:none;color:rgba(255,255,255,.5);font-size:0.88rem;font-weight:600;transition:color .2s;}
+ .footer-col ul a:hover{color:var(--pink);}
+ .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;font-size:0.83rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-weight:600;}
+ .footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none;}
+ .footer-bottom a:hover{color:var(--yellow);}
+ .footer-nav-logo{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--yellow);text-decoration:none;display:flex;align-items:center;gap:10px;}
+
+ @media(max-width:768px){.nav-links{display:none;}.gallery-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+ @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+ <a href="index.html" class="nav-logo">
+ <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+ STEM Discovery Club
+ </a>
+ <ul class="nav-links">
+ <li><a href="about.html">About</a></li>
+ <li><a href="programs.html" class="active">Programs</a></li>
+ <li><a href="events.html">Events</a></li>
+ <li><a href="contact.html">Contact</a></li>
+ <li><a href="donate.html" class="btn-donate">Donate</a></li>
+ </ul>
+</nav>
+
+<div class="page-hero">
+ <div class="page-hero-inner">
+ <div class="page-label">Our Programs</div>
+ <!-- ✏️ EDIT: Page headline and description -->
+ <h1 class="page-title">Hands-On. Minds-On.<br/>Future-Ready!</h1>
+ <p class="page-desc">Every program is designed to be engaging, accessible, and exciting — no prior experience needed. Just curiosity and enthusiasm!</p>
+ </div>
+</div>
+
+<section class="programs-section">
+ <div class="programs-inner">
+ <div class="programs-grid">
+ <!-- ✏️ EDIT: Program Card 1 — change emoji icon, title, description, and tags -->
+ <div class="program-card">
+ <!-- ✏️ IMAGE: Replace with <img src="science.jpg" style="width:100%;height:160px;object-fit:cover;"> -->
+ <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--pink);">
+ <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+ <div class="img-ph-label">Science Program Photo</div>
+ </div>
+ <div class="program-card-body">
+ <div class="program-icon-row">
+ <div class="program-icon">🔬</div><!-- ✏️ Change emoji -->
+ </div>
+ <h3>Science Explorations</h3><!-- ✏️ -->
+ <p>Discover the wonders of science through fun experiments and guided activities that make learning come alive.</p><!-- ✏️ -->
+ <div class="program-tags">
+ <span class="program-tag">Ages 6–12</span><!-- ✏️ -->
+ <span class="program-tag">Hands-on</span><!-- ✏️ -->
+ <span class="program-tag">Free</span><!-- ✏️ -->
+ </div>
+ </div>
+ </div>
+
+ <!-- ✏️ EDIT: Program Card 2 -->
+ <div class="program-card">
+ <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--sky);">
+ <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+ <div class="img-ph-label">Coding Program Photo</div>
+ </div>
+ <div class="program-card-body">
+ <div class="program-icon-row">
+ <div class="program-icon">💻</div><!-- ✏️ -->
+ </div>
+ <h3>Tech &amp; Coding</h3><!-- ✏️ -->
+ <p>Learn beginner-friendly coding, logic, and technology skills through simple and engaging projects.</p><!-- ✏️ -->
+ <div class="program-tags">
+ <span class="program-tag">Ages 8–14</span>
+ <span class="program-tag">Beginner-Friendly</span>
+ <span class="program-tag">Free</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- ✏️ EDIT: Program Card 3 -->
+ <div class="program-card">
+ <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--yellow);">
+ <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+ <div class="img-ph-label">Engineering Program Photo</div>
+ </div>
+ <div class="program-card-body">
+ <div class="program-icon-row">
+ <div class="program-icon">⚙️</div><!-- ✏️ -->
+ </div>
+ <h3>Engineering Challenges</h3><!-- ✏️ -->
+ <p>Design, build, test, and solve real-world problems through creative teamwork and innovative thinking.</p><!-- ✏️ -->
+ <div class="program-tags">
+ <span class="program-tag">All Ages</span>
+ <span class="program-tag">Team-Based</span>
+ <span class="program-tag">Free</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- ✏️ EDIT: Program Card 4 -->
+ <div class="program-card">
+ <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--lavender);">
+ <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+ <div class="img-ph-label">Math Program Photo</div>
+ </div>
+ <div class="program-card-body">
+ <div class="program-icon-row">
+ <div class="program-icon">🔢</div><!-- ✏️ -->
+ </div>
+ <h3>Math in Action</h3><!-- ✏️ -->
+ <p>Apply math in exciting and practical ways through games, puzzles, and real-world activities.</p><!-- ✏️ -->
+ <div class="program-tags">
+ <span class="program-tag">Ages 6–12</span>
+ <span class="program-tag">Games &amp; Puzzles</span>
+ <span class="program-tag">Free</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<div class="wave-divider" style="background:var(--mint-light);">
+ <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+ <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#FFFDF7"/>
+ </svg>
+</div>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery-section">
+ <div class="gallery-inner">
+ <div class="section-label">In Action</div>
+ <h2 class="section-title">Program Gallery</h2>
+ <div class="gallery-grid">
+ <!-- ✏️ IMAGE: Replace each placeholder with <img src="yourphoto.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:20px;"> -->
+ <div class="gallery-item tall img-ph" style="min-height:300px;">
+ <div class="img-ph-icon">📷</div>
+ <div class="img-ph-label">Gallery Photo 1</div>
+ <div class="img-ph-sub">Tall feature image</div>
+ </div>
+ <div class="gallery-item img-ph" style="min-height:140px;">
+ <div class="img-ph-icon">📷</div>
+ <div class="img-ph-label">Gallery Photo 2</div>
+ </div>
+ <div class="gallery-item img-ph" style="min-height:140px;">
+ <div class="img-ph-icon">📷</div>
+ <div class="img-ph-label">Gallery Photo 3</div>
+ </div>
+ <div class="gallery-item img-ph" style="min-height:140px;">
+ <div class="img-ph-icon">📷</div>
+ <div class="img-ph-label">Gallery Photo 4</div>
+ </div>
+ <div class="gallery-item img-ph" style="min-height:140px;">
+ <div class="img-ph-icon">📷</div>
+ <div class="img-ph-label">Gallery Photo 5</div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<div class="wave-divider" style="background:var(--white);">
+ <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+ <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#FFE566"/>
+ </svg>
+</div>
+
+<div class="cta-strip">
+ <!-- ✏️ EDIT: CTA text -->
+ <h2>Ready to Sign Up?</h2>
+ <p>All of our programs are free and open to students in the San Antonio area. Come join the fun!</p>
+ <a href="contact.html" class="btn-coral">Sign Up Today →</a>
+</div>
+
+<div class="wave-divider" style="background:var(--yellow);">
+ <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+ <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#2D2A45"/>
+ </svg>
+</div>
+
+<footer>
+ <div class="footer-inner">
+ <div class="footer-top">
+ <div class="footer-brand">
+ <a href="index.html" class="footer-nav-logo">
+ <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+ STEM Discovery Club
+ </a>
+ <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
+ </div>
+ <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+ <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html">Science Activities</a></li><li><a href="programs.html">Coding Sessions</a></li><li><a href="programs.html">Robotics Workshops</a></li><li><a href="programs.html">STEM Career Talks</a></li></ul></div>
+ <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+ </div>
+ <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate →</a></div>
+ </div>
+</footer>
+</body>
+</html>
