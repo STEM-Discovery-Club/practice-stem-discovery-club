@@ -6,256 +6,244 @@
 <title>Donate | STEM Discovery Club</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 <style>
- :root{--pink:#FFB3C6;--pink-light:#FFD6E0;--pink-dark:#E87D9A;--yellow:#FFE566;--yellow-light:#FFF3A0;--yellow-dark:#F5C400;--mint:#B5EAD7;--mint-light:#D4F5E9;--mint-dark:#5CC8A0;--sky:#AED9F7;--sky-light:#D6EEFF;--sky-dark:#5AABDF;--lavender:#C3B1E1;--lavender-light:#E5DEFF;--peach:#FFCBA4;--peach-light:#FFE8D6;--coral:#FF8C69;--white:#FFFDF7;--dark:#2D2A45;--dark2:#4A4470;--gray:#7B7A99;--radius:20px;--radius-sm:12px;--radius-pill:50px;}
- *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
- html{scroll-behavior:smooth;}
- body{font-family:'Nunito',sans-serif;background:var(--yellow-light);color:var(--dark);line-height:1.65;overflow-x:hidden;}
+  :root{--pink:#FFB3C6;--pink-light:#FFD6E0;--pink-dark:#E87D9A;--yellow:#FFE566;--yellow-light:#FFF3A0;--yellow-dark:#F5C400;--mint:#B5EAD7;--mint-light:#D4F5E9;--mint-dark:#5CC8A0;--sky:#AED9F7;--sky-light:#D6EEFF;--sky-dark:#5AABDF;--lavender:#C3B1E1;--lavender-light:#E5DEFF;--peach:#FFCBA4;--peach-light:#FFE8D6;--coral:#FF8C69;--white:#FFFDF7;--dark:#2D2A45;--dark2:#4A4470;--gray:#7B7A99;--radius:20px;--radius-sm:12px;--radius-pill:50px;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--yellow-light);color:var(--dark);line-height:1.65;overflow-x:hidden;}
 
- nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,253,247,0.97);backdrop-filter:blur(14px);border-bottom:3px solid var(--pink-light);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:68px;}
- .nav-logo{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:12px;}
- .logo-bubble{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--yellow) 0%,var(--pink) 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 var(--yellow-dark);border:2px dashed rgba(255,255,255,0.6);flex-shrink:0;}
- .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center;}
- .nav-links a{text-decoration:none;color:var(--dark2);font-size:0.92rem;font-weight:800;font-family:'Baloo 2',cursive;transition:color .2s;}
- .nav-links a:hover{color:var(--pink-dark);}
- .nav-links a.active{color:var(--pink-dark);border-bottom:2.5px solid var(--pink-dark);padding-bottom:2px;}
- .nav-links .btn-donate{background:var(--yellow);color:var(--dark);padding:9px 22px;border-radius:var(--radius-pill);border:2.5px solid var(--yellow-dark);box-shadow:0 4px 0 var(--yellow-dark);transition:transform .15s,box-shadow .15s;font-weight:800;}
- .nav-links .btn-donate:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--yellow-dark);}
-  <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="program.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="contact.html">Contact</a>
-    <a href="donate.html" class="btn-donate">Donate</a>
-  </nav>
- @keyframes bounce-slow{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
- @keyframes shimmer{to{left:160%}}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,253,247,0.97);backdrop-filter:blur(14px);border-bottom:3px solid var(--pink-light);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .nav-logo{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:12px;}
+  .logo-bubble{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--yellow) 0%,var(--pink) 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 var(--yellow-dark);}
+  .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center;}
+  .nav-links a{text-decoration:none;color:var(--dark2);font-size:0.92rem;font-weight:800;font-family:'Baloo 2',cursive;transition:color .2s;}
+  .nav-links a:hover{color:var(--pink-dark);}
+  .nav-links a.active{color:var(--pink-dark);border-bottom:2.5px solid var(--pink-dark);padding-bottom:2px;}
+  .nav-links .btn-donate{background:var(--yellow);color:var(--dark);padding:9px 22px;border-radius:var(--radius-pill);border:2.5px solid var(--yellow-dark);box-shadow:0 4px 0 var(--yellow-dark);transition:transform .15s;}
+  .nav-links .btn-donate:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--yellow-dark);}
 
- /* PAGE HERO */
- .page-hero{padding:130px 5vw 80px;background:var(--yellow);text-align:center;position:relative;overflow:hidden;border-bottom:4px solid var(--yellow-dark);}
- .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.3) 2px,transparent 2px);background-size:28px 28px;}
- .page-hero>*{position:relative;z-index:1;}
- .page-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--dark2);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
- .page-title{font-family:'Fredoka One',cursive;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;color:var(--dark);margin-bottom:1rem;}
- .page-desc{font-size:1.05rem;color:var(--dark2);max-width:560px;font-weight:700;margin:0 auto;}
- .hero-emoji{font-size:4rem;display:block;margin-bottom:1rem;animation:bounce-slow 3s ease-in-out infinite;}
+  @keyframes bounce-slow{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+  @keyframes shimmer{to{left:160%}}
 
- /* IMPACT */
- .impact-section{padding:80px 5vw;background:var(--white);}
- .impact-inner{max-width:1100px;margin:0 auto;}
- .section-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--pink-dark);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
- .section-title{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3.5vw,2.5rem);color:var(--dark);margin-bottom:1.2rem;}
- .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:2.5rem;}
- .impact-card{background:#fff;border-radius:var(--radius);padding:28px;border:2.5px solid var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);text-align:center;transition:transform .2s;}
- .impact-card:hover{transform:translateY(-5px) rotate(-1deg);}
- .impact-card:nth-child(2){border-color:var(--mint);box-shadow:0 6px 0 var(--mint-dark);}
- .impact-card:nth-child(3){border-color:var(--pink);box-shadow:0 6px 0 var(--pink-dark);}
- .impact-card:nth-child(4){border-color:var(--sky);box-shadow:0 6px 0 var(--sky-dark);}
- .impact-amount{font-family:'Fredoka One',cursive;font-size:2.2rem;color:var(--dark);margin-bottom:8px;}
- .impact-desc{font-size:0.88rem;color:var(--dark2);font-weight:700;}
+  /* PAGE HERO */
+  .page-hero{padding:130px 5vw 80px;background:var(--yellow);text-align:center;position:relative;overflow:hidden;border-bottom:4px solid var(--yellow-dark);}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.3) 2px,transparent 2px);background-size:28px 28px;}
+  .page-hero>*{position:relative;z-index:1;}
+  .page-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--dark2);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
+  .page-title{font-family:'Fredoka One',cursive;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;color:var(--dark);margin-bottom:1rem;}
+  .page-desc{font-size:1.05rem;color:var(--dark2);max-width:560px;font-weight:700;margin:0 auto;}
+  .hero-emoji{font-size:4rem;display:block;margin-bottom:1rem;animation:bounce-slow 3s ease-in-out infinite;}
 
- /* DONATION TIERS */
- .tiers-section{padding:80px 5vw;background:var(--yellow-light);}
- .tiers-inner{max-width:1100px;margin:0 auto;}
- .tiers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:2.5rem;}
- .tier-card{background:#fff;border-radius:var(--radius);padding:32px 28px;border:2.5px solid var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);text-align:center;transition:transform .2s;}
- .tier-card:hover{transform:translateY(-6px) rotate(-1deg);}
- .tier-card.featured{background:var(--yellow-light);border-color:var(--yellow-dark);box-shadow:0 8px 0 var(--dark);}
- .tier-emoji{font-size:2.5rem;margin-bottom:14px;}
- .tier-name{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--dark);margin-bottom:6px;}
- .tier-amount{font-family:'Fredoka One',cursive;font-size:2rem;color:var(--dark2);margin-bottom:12px;}
- .tier-desc{font-size:0.88rem;color:var(--gray);font-weight:600;margin-bottom:20px;line-height:1.65;}
- .btn-tier{display:block;background:var(--coral);color:#fff;padding:14px 24px;border-radius:var(--radius-pill);font-family:'Baloo 2',cursive;font-weight:800;font-size:0.95rem;text-decoration:none;border:2.5px solid var(--dark);box-shadow:0 5px 0 var(--dark);transition:transform .15s,box-shadow .15s;}
- .btn-tier:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--dark);}
+  /* IMPACT */
+  .impact-section{padding:80px 5vw;background:var(--white);}
+  .impact-inner{max-width:1100px;margin:0 auto;}
+  .section-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--pink-dark);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
+  .section-title{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3.5vw,2.5rem);color:var(--dark);margin-bottom:1.2rem;}
+  .impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:2.5rem;}
+  .impact-card{background:#fff;border-radius:var(--radius);padding:28px;border:2.5px solid var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);text-align:center;transition:transform .2s;}
+  .impact-card:hover{transform:translateY(-5px) rotate(-1deg);}
+  .impact-card:nth-child(2){border-color:var(--mint);box-shadow:0 6px 0 var(--mint-dark);}
+  .impact-card:nth-child(3){border-color:var(--pink);box-shadow:0 6px 0 var(--pink-dark);}
+  .impact-card:nth-child(4){border-color:var(--sky);box-shadow:0 6px 0 var(--sky-dark);}
+  .impact-amount{font-family:'Fredoka One',cursive;font-size:2.2rem;color:var(--dark);margin-bottom:8px;}
+  .impact-desc{font-size:0.88rem;color:var(--dark2);font-weight:700;}
 
- /* WHY DONATE */
- .why-section{padding:80px 5vw;background:var(--mint-light);}
- .why-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
- .why-text h2{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--dark);margin-bottom:1.2rem;}
- .why-text p{font-size:0.95rem;color:var(--dark2);font-weight:600;line-height:1.8;margin-bottom:1rem;}
- .why-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:1.2rem;}
- .why-list li{display:flex;gap:12px;align-items:flex-start;font-size:0.9rem;color:var(--dark2);font-weight:700;}
- .why-list li::before{content:'✅';flex-shrink:0;}
+  /* DONATION TIERS */
+  .tiers-section{padding:80px 5vw;background:var(--yellow-light);}
+  .tiers-inner{max-width:1100px;margin:0 auto;}
+  .tiers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:2.5rem;}
+  .tier-card{background:#fff;border-radius:var(--radius);padding:32px 28px;border:2.5px solid var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);text-align:center;transition:transform .2s;}
+  .tier-card:hover{transform:translateY(-6px) rotate(-1deg);}
+  .tier-card.featured{background:var(--yellow-light);border-color:var(--yellow-dark);box-shadow:0 8px 0 var(--dark);}
+  .tier-emoji{font-size:2.5rem;margin-bottom:14px;}
+  .tier-name{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--dark);margin-bottom:6px;}
+  .tier-amount{font-family:'Fredoka One',cursive;font-size:2rem;color:var(--dark2);margin-bottom:12px;}
+  .tier-desc{font-size:0.88rem;color:var(--gray);font-weight:600;margin-bottom:20px;line-height:1.65;}
+  .btn-tier{display:block;background:var(--coral);color:#fff;padding:14px 24px;border-radius:var(--radius-pill);font-family:'Baloo 2',cursive;font-weight:800;font-size:0.95rem;text-decoration:none;border:2.5px solid var(--coral);box-shadow:0 5px 0 var(--dark);transition:transform .15s;cursor:pointer;}
+  .btn-tier:hover{transform:translateY(-3px);box-shadow:0 8px 0 var(--dark);}
 
- .img-ph{border:3px dashed rgba(100,80,180,0.3);border-radius:var(--radius);background:linear-gradient(135deg,var(--yellow-light) 0%,var(--mint-light) 50%,var(--pink-light) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s;cursor:default;}
- .img-ph:hover{border-color:var(--lavender);transform:translateY(-4px) rotate(1deg);}
- .img-ph-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
- .img-ph-label{font-size:0.8rem;font-weight:800;color:var(--dark2);text-align:center;padding:0 16px;font-family:'Baloo 2',cursive;letter-spacing:.04em;}
- .img-ph-sub{font-size:0.72rem;color:var(--gray);font-weight:600;text-align:center;padding:0 16px;}
- .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);animation:shimmer 2.8s infinite;}
+  /* WHY DONATE */
+  .why-section{padding:80px 5vw;background:var(--mint-light);}
+  .why-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+  .why-text h2{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--dark);margin-bottom:1.2rem;}
+  .why-text p{font-size:0.95rem;color:var(--dark2);font-weight:600;line-height:1.8;margin-bottom:1rem;}
+  .why-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:1.2rem;}
+  .why-list li{display:flex;gap:12px;align-items:flex-start;font-size:0.9rem;color:var(--dark2);font-weight:700;}
+  .why-list li::before{content:'✅';flex-shrink:0;}
 
- .wave-divider{width:100%;overflow:hidden;line-height:0;}
- .wave-divider svg{display:block;width:100%;}
- footer{background:var(--dark);color:rgba(255,255,255,.55);padding:60px 5vw 32px;}
- .footer-inner{max-width:1100px;margin:0 auto;}
- .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
- .footer-brand p{font-size:0.88rem;margin-top:14px;line-height:1.75;max-width:280px;font-weight:600;}
- .footer-col h4{font-family:'Fredoka One',cursive;font-size:0.95rem;color:var(--yellow);margin-bottom:18px;}
- .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
- .footer-col ul a{text-decoration:none;color:rgba(255,255,255,.5);font-size:0.88rem;font-weight:600;transition:color .2s;}
- .footer-col ul a:hover{color:var(--pink);}
- .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;font-size:0.83rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-weight:600;}
- .footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none;}
- .footer-bottom a:hover{color:var(--yellow);}
- .footer-nav-logo{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--yellow);text-decoration:none;display:flex;align-items:center;gap:10px;}
+  .img-ph{border:3px dashed rgba(100,80,180,0.3);border-radius:var(--radius);background:linear-gradient(135deg,var(--yellow-light) 0%,var(--mint-light) 50%,var(--pink-light) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .25s;}
+  .img-ph:hover{border-color:var(--lavender);transform:translateY(-4px) rotate(1deg);}
+  .img-ph-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+  .img-ph-label{font-size:0.8rem;font-weight:800;color:var(--dark2);text-align:center;padding:0 16px;font-family:'Baloo 2',cursive;letter-spacing:.04em;}
+  .img-ph-sub{font-size:0.72rem;color:var(--gray);font-weight:600;text-align:center;padding:0 16px;}
+  .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);animation:shimmer 2.8s infinite;}
 
- @media(max-width:768px){.nav-links{display:none;}.why-inner{grid-template-columns:1fr;gap:40px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
- @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
+  .wave-divider{width:100%;overflow:hidden;line-height:0;}
+  .wave-divider svg{display:block;width:100%;}
+  footer{background:var(--dark);color:rgba(255,255,255,.55);padding:60px 5vw 32px;}
+  .footer-inner{max-width:1100px;margin:0 auto;}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+  .footer-brand p{font-size:0.88rem;margin-top:14px;line-height:1.75;max-width:280px;font-weight:600;}
+  .footer-col h4{font-family:'Fredoka One',cursive;font-size:0.95rem;color:var(--yellow);margin-bottom:18px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-col ul a{text-decoration:none;color:rgba(255,255,255,.5);font-size:0.88rem;font-weight:600;transition:color .2s;}
+  .footer-col ul a:hover{color:var(--pink);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;font-size:0.83rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-weight:600;}
+  .footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none;}
+  .footer-bottom a:hover{color:var(--yellow);}
+  .footer-nav-logo{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--yellow);text-decoration:none;display:flex;align-items:center;gap:10px;}
+
+  @media(max-width:768px){.nav-links{display:none;}.why-inner{grid-template-columns:1fr;gap:40px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+  @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 <nav>
- <a href="index.html" class="nav-logo">
- <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
- STEM Discovery Club
- </a>
- <ul class="nav-links">
- <li><a href="about.html">About</a></li>
- <li><a href="programs.html">Programs</a></li>
- <li><a href="events.html">Events</a></li>
- <li><a href="contact.html">Contact</a></li>
- <li><a href="donate.html" class="btn-donate active">Donate</a></li>
- </ul>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+    STEM Discovery Club
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="program.html">Programs</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html" class="btn-donate active">Donate</a></li>
+  </ul>
 </nav>
 
 <div class="page-hero">
- <span class="hero-emoji">💛</span><!-- ✏️ Change emoji -->
- <!-- ✏️ EDIT: Donate page headline and description -->
- <div class="page-label">Support Our Mission</div>
- <h1 class="page-title">Be Part of Something Bigger!</h1>
- <p class="page-desc">Your support helps us inspire more students and create more opportunities in our community. Every little bit counts!</p>
+  <span class="hero-emoji">💛</span>
+  <div class="page-label">Support Our Mission</div>
+  <h1 class="page-title">Be Part of Something Bigger!</h1>
+  <p class="page-desc">Your support helps us inspire more students and create more opportunities in our community. Every little bit counts!</p>
 </div>
 
 <div class="wave-divider" style="background:var(--yellow);">
- <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
- <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#FFFDF7"/>
- </svg>
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#FFFDF7"/>
+  </svg>
 </div>
 
 <!-- IMPACT NUMBERS -->
 <section class="impact-section">
- <div class="impact-inner">
- <div class="section-label">Where It Goes</div>
- <h2 class="section-title">Your Donation Makes a Real Difference</h2>
- <div class="impact-grid">
- <!-- ✏️ EDIT: Change the amounts and descriptions to match how you use donations -->
- <div class="impact-card">
- <div class="impact-amount">$10</div>
- <p class="impact-desc">Covers supplies for one student at a session</p><!-- ✏️ -->
- </div>
- <div class="impact-card">
- <div class="impact-amount">$25</div>
- <p class="impact-desc">Funds materials for a full activity kit</p><!-- ✏️ -->
- </div>
- <div class="impact-card">
- <div class="impact-amount">$50</div>
- <p class="impact-desc">Sponsors an entire group workshop</p><!-- ✏️ -->
- </div>
- <div class="impact-card">
- <div class="impact-amount">$100</div>
- <p class="impact-desc">Helps run a full event for 20+ students</p><!-- ✏️ -->
- </div>
- </div>
- </div>
+  <div class="impact-inner">
+    <div class="section-label">Where It Goes</div>
+    <h2 class="section-title">Your Donation Makes a Real Difference</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-amount">$10</div>
+        <p class="impact-desc">Covers supplies for one student at a session</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$25</div>
+        <p class="impact-desc">Funds materials for a full activity kit</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$50</div>
+        <p class="impact-desc">Sponsors an entire group workshop</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-amount">$100</div>
+        <p class="impact-desc">Helps run a full event for 20+ students</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="wave-divider" style="background:var(--white);">
- <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
- <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#FFF3A0"/>
- </svg>
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#FFF3A0"/>
+  </svg>
 </div>
 
 <!-- DONATION TIERS -->
 <section class="tiers-section">
- <div class="tiers-inner">
- <div class="section-label">Choose Your Impact</div>
- <h2 class="section-title">Donation Levels</h2>
- <div class="tiers-grid">
- <!-- ✏️ EDIT: Donation tiers — update emoji, name, amount, description, and link href for each tier -->
- <div class="tier-card">
- <div class="tier-emoji">🌱</div>
- <div class="tier-name">Seedling</div><!-- ✏️ -->
- <div class="tier-amount">$10</div><!-- ✏️ -->
- <p class="tier-desc">A small but mighty gift that helps stock our supply table for a session.</p><!-- ✏️ -->
- <!-- ✏️ Replace href with your actual donation link (e.g. PayPal, Venmo, Stripe, etc.) -->
- <a href="#" class="btn-tier">Donate $10</a>
- </div>
- <div class="tier-card featured">
- <div class="tier-emoji">⭐</div>
- <div class="tier-name">Star Supporter</div><!-- ✏️ -->
- <div class="tier-amount">$50</div><!-- ✏️ -->
- <p class="tier-desc">Fund a complete workshop and give a group of kids a hands-on STEM experience.</p><!-- ✏️ -->
- <a href="#" class="btn-tier">Donate $50</a><!-- ✏️ -->
- </div>
- <div class="tier-card">
- <div class="tier-emoji">🚀</div>
- <div class="tier-name">STEM Champion</div><!-- ✏️ -->
- <div class="tier-amount">$100</div><!-- ✏️ -->
- <p class="tier-desc">Power a full event and help us reach even more curious young minds in San Antonio.</p><!-- ✏️ -->
- <a href="#" class="btn-tier">Donate $100</a><!-- ✏️ -->
- </div>
- <div class="tier-card">
- <div class="tier-emoji">💛</div>
- <div class="tier-name">Custom Amount</div><!-- ✏️ -->
- <div class="tier-amount">Any $</div><!-- ✏️ -->
- <p class="tier-desc">Every dollar counts. Give what feels right — we're grateful for any amount!</p><!-- ✏️ -->
- <a href="#" class="btn-tier">Donate Any Amount</a><!-- ✏️ -->
- </div>
- </div>
- </div>
+  <div class="tiers-inner">
+    <div class="section-label">Choose Your Impact</div>
+    <h2 class="section-title">Donation Levels</h2>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-emoji">🌱</div>
+        <div class="tier-name">Seedling</div>
+        <div class="tier-amount">$10</div>
+        <p class="tier-desc">A small but mighty gift that helps stock our supply table for a session.</p>
+        <a href="#" class="btn-tier">Donate $10</a>
+      </div>
+      <div class="tier-card featured">
+        <div class="tier-emoji">⭐</div>
+        <div class="tier-name">Star Supporter</div>
+        <div class="tier-amount">$50</div>
+        <p class="tier-desc">Fund a complete workshop and give a group of kids a hands-on STEM experience.</p>
+        <a href="#" class="btn-tier">Donate $50</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-emoji">🚀</div>
+        <div class="tier-name">STEM Champion</div>
+        <div class="tier-amount">$100</div>
+        <p class="tier-desc">Power a full event and help us reach even more curious young minds in San Antonio.</p>
+        <a href="#" class="btn-tier">Donate $100</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-emoji">💛</div>
+        <div class="tier-name">Custom Amount</div>
+        <div class="tier-amount">Any $</div>
+        <p class="tier-desc">Every dollar counts. Give what feels right — we're grateful for any amount!</p>
+        <a href="#" class="btn-tier">Donate Any Amount</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="wave-divider" style="background:var(--yellow-light);">
- <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
- <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#D4F5E9"/>
- </svg>
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#D4F5E9"/>
+  </svg>
 </div>
 
 <!-- WHY DONATE -->
 <section class="why-section">
- <div class="why-inner">
- <div class="why-text">
- <!-- ✏️ EDIT: Why donate text section -->
- <h2>Why Your Support Matters</h2>
- <p>We are a 100% student-run club with zero paid staff. Every single dollar donated goes directly toward student programs, materials, and events — nothing else.</p>
- <p>San Antonio students deserve access to quality STEM education regardless of their background. Your donation helps make that a reality.</p>
- <ul class="why-list">
- <li>All programs are completely free for participants</li><!-- ✏️ -->
- <li>Donations fund supplies, event costs, and materials</li><!-- ✏️ -->
- <li>100% of funds go directly to programs</li><!-- ✏️ -->
- <li>We are a youth-led nonprofit focused on community impact</li><!-- ✏️ -->
- </ul>
- </div>
- <!-- ✏️ IMAGE: Replace with a compelling photo that shows impact -->
- <div class="img-ph" style="min-height:320px;">
- <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
- <div class="img-ph-label">Impact Photo</div>
- <div class="img-ph-sub">A photo showing your programs in action</div>
- </div>
- </div>
+  <div class="why-inner">
+    <div class="why-text">
+      <h2>Why Your Support Matters</h2>
+      <p>We are a 100% student-run club with zero paid staff. Every single dollar donated goes directly toward student programs, materials, and events — nothing else.</p>
+      <p>San Antonio students deserve access to quality STEM education regardless of their background. Your donation helps make that a reality.</p>
+      <ul class="why-list">
+        <li>All programs are completely free for participants</li>
+        <li>Donations fund supplies, event costs, and materials</li>
+        <li>100% of funds go directly to programs</li>
+        <li>We are a youth-led nonprofit focused on community impact</li>
+      </ul>
+    </div>
+    <div class="img-ph" style="min-height:320px;">
+      <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+      <div class="img-ph-label">Impact Photo</div>
+      <div class="img-ph-sub">A photo showing your programs in action</div>
+    </div>
+  </div>
 </section>
 
 <div class="wave-divider" style="background:var(--mint-light);">
- <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
- <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#2D2A45"/>
- </svg>
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#2D2A45"/>
+  </svg>
 </div>
 
 <footer>
- <div class="footer-inner">
- <div class="footer-top">
- <div class="footer-brand">
- <a href="index.html" class="footer-nav-logo">
- <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
- STEM Discovery Club
- </a>
- <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
- </div>
- <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
- <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html">Science Activities</a></li><li><a href="programs.html">Coding Sessions</a></li><li><a href="programs.html">Robotics Workshops</a></li><li><a href="programs.html">STEM Career Talks</a></li></ul></div>
- <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
- </div>
- <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate →</a></div>
- </div>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-nav-logo">
+          <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+          STEM Discovery Club
+        </a>
+        <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Science Activities</a></li><li><a href="program.html">Coding Sessions</a></li><li><a href="program.html">Robotics Workshops</a></li><li><a href="program.html">STEM Career Talks</a></li></ul></div>
+      <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate →</a></div>
+  </div>
 </footer>
 </body>
 </html>
