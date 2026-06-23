@@ -182,13 +182,6 @@
   .img-ph-sub { font-size: 0.72rem; color: var(--gray); font-weight: 600; text-align: center; padding: 0 16px; }
   .img-ph::before { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent); animation: shimmer 2.8s infinite; }
 
-  /* floating hero cards */
-  .hero-img-float { position: absolute; z-index: 0; box-shadow: 0 8px 0 rgba(0,0,0,0.08), 0 16px 32px rgba(80,60,160,0.12); animation: float 4s ease-in-out infinite; border: 3px solid #fff; pointer-events: none; }
-  .hero-img-float.f1 { top: 16%; right: 5%; width: 210px; height: 155px; animation-delay: 0s; transform: rotate(3deg); }
-  .hero-img-float.f2 { bottom: 18%; right: 11%; width: 170px; height: 130px; animation-delay: 1.4s; transform: rotate(-4deg); }
-  .hero-img-float.f3 { top: 20%; left: 4%; width: 180px; height: 140px; animation-delay: 0.7s; transform: rotate(-2deg); }
-  @media(max-width: 900px) { .hero-img-float { display: none; } }
-
   /* ===== HERO ===== */
   .hero {
   min-height: 100vh;
