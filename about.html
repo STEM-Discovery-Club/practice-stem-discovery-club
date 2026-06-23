@@ -30,6 +30,22 @@
   .nav-links .btn-donate{background:var(--pink);color:var(--dark);padding:9px 22px;border-radius:var(--radius-pill);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);transition:transform .15s;}
   .nav-links .btn-donate:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--pink-dark);background:var(--yellow);border-color:var(--yellow-dark);}
 
+  /* ===== MOBILE NAV ===== */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border-radius:10px;border:2px solid var(--pink-light);background:transparent;transition:background .2s;z-index:200;}
+  .hamburger:hover{background:var(--pink-light);}
+  .hamburger span{display:block;width:22px;height:2.5px;border-radius:2px;background:var(--dark);transition:transform .3s,opacity .3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+  .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,253,247,0.99);backdrop-filter:blur(18px);border-bottom:3px solid var(--pink-light);padding:20px 5vw 28px;z-index:99;flex-direction:column;gap:6px;box-shadow:0 8px 32px rgba(45,42,69,0.12);}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{text-decoration:none;color:var(--dark2);font-size:1.05rem;font-weight:800;font-family:'Baloo 2',cursive;padding:12px 16px;border-radius:12px;transition:background .2s,color .2s;}
+  .mobile-menu a:hover{background:var(--pink-light);color:var(--pink-dark);}
+  .mobile-menu a.active{color:var(--pink-dark);background:var(--pink-light);}
+  .mobile-menu .btn-donate-mobile{background:var(--pink);color:var(--dark);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);text-align:center;margin-top:6px;border-radius:var(--radius-pill);}
+  .mobile-menu .btn-donate-mobile:hover{background:var(--yellow);border-color:var(--yellow-dark);}
+  @media(max-width:768px){.hamburger{display:flex;}.nav-links{display:none !important;}}
+
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
   @keyframes shimmer{to{left:160%}}
 
@@ -40,7 +56,6 @@
   .img-ph-sub{font-size:0.72rem;color:var(--gray);font-weight:600;text-align:center;padding:0 16px;}
   .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);animation:shimmer 2.8s infinite;}
 
-  /* PAGE HERO BANNER */
   .page-hero{padding:130px 5vw 70px;background:var(--white);position:relative;overflow:hidden;}
   .page-hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(circle,rgba(255,179,198,0.12) 2px,transparent 2px);background-size:28px 28px;}
   .page-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;gap:60px;flex-wrap:wrap;}
@@ -50,17 +65,22 @@
   .page-desc{font-size:1rem;color:var(--dark2);max-width:520px;font-weight:700;line-height:1.75;}
   .page-hero-img{flex:1;min-width:280px;min-height:260px;}
 
-  /* ABOUT CONTENT */
-  .about-section{padding:80px 5vw;background:var(--white);position:relative;}
-  .about-section::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(circle,rgba(255,179,198,0.08) 2px,transparent 2px);background-size:28px 28px;}
-  .about-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
-
-  /* Team section */
-  .team-section{padding:80px 5vw;background:var(--sky-light);}
-  .team-inner{max-width:1100px;margin:0 auto;}
+  .values-section{padding:80px 5vw;background:var(--mint-light);}
+  .values-inner{max-width:1100px;margin:0 auto;}
   .section-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--pink-dark);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
   .section-title{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3.5vw,2.5rem);line-height:1.15;color:var(--dark);margin-bottom:1.2rem;}
   .section-desc{font-size:1rem;color:var(--dark2);max-width:560px;font-weight:700;}
+  .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:2.5rem;}
+  .value-card{background:#fff;border-radius:var(--radius);padding:32px 28px;border:2.5px solid var(--mint);box-shadow:0 6px 0 var(--mint-dark);transition:transform .2s;}
+  .value-card:hover{transform:translateY(-5px) rotate(-1deg);}
+  .value-card:nth-child(2){border-color:var(--lavender);box-shadow:0 6px 0 var(--lavender);}
+  .value-card:nth-child(3){border-color:var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);}
+  .value-icon{font-size:2.2rem;margin-bottom:14px;}
+  .value-title{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--dark);margin-bottom:10px;}
+  .value-desc{font-size:0.9rem;color:var(--dark2);font-weight:600;line-height:1.65;}
+
+  .team-section{padding:80px 5vw;background:var(--sky-light);}
+  .team-inner{max-width:1100px;margin:0 auto;}
   .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:2.5rem;}
   .team-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:2.5px solid var(--pink-light);box-shadow:0 6px 0 var(--pink);transition:transform .2s;}
   .team-card:hover{transform:translateY(-6px) rotate(-1deg);}
@@ -73,19 +93,6 @@
   .team-role{font-size:0.82rem;font-weight:800;color:var(--pink-dark);font-family:'Baloo 2',cursive;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
   .team-bio{font-size:0.85rem;color:var(--dark2);font-weight:600;}
 
-  /* Values */
-  .values-section{padding:80px 5vw;background:var(--mint-light);}
-  .values-inner{max-width:1100px;margin:0 auto;}
-  .values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-top:2.5rem;}
-  .value-card{background:#fff;border-radius:var(--radius);padding:32px 28px;border:2.5px solid var(--mint);box-shadow:0 6px 0 var(--mint-dark);transition:transform .2s;}
-  .value-card:hover{transform:translateY(-5px) rotate(-1deg);}
-  .value-card:nth-child(2){border-color:var(--lavender);box-shadow:0 6px 0 var(--lavender);}
-  .value-card:nth-child(3){border-color:var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);}
-  .value-icon{font-size:2.2rem;margin-bottom:14px;}
-  .value-title{font-family:'Fredoka One',cursive;font-size:1.15rem;color:var(--dark);margin-bottom:10px;}
-  .value-desc{font-size:0.9rem;color:var(--dark2);font-weight:600;line-height:1.65;}
-
-  /* story section */
   .story-section{padding:80px 5vw;background:var(--white);}
   .story-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
   .story-text h2{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--dark);margin-bottom:1.2rem;}
@@ -111,9 +118,9 @@
   .footer-nav-logo{font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--yellow);text-decoration:none;display:flex;align-items:center;gap:10px;}
 
   @media(max-width:768px){
-  .nav-links{display:none;}
   .story-inner{grid-template-columns:1fr;gap:40px;}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+  .page-hero-inner{flex-direction:column;}
   }
   @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
 </style>
@@ -130,11 +137,24 @@
     <li><a href="program.html">Programs</a></li>
     <li><a href="events.html">Events</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li><a href="volunteer.html">Volunteer</a></li>
     <li><a href="donate.html" class="btn-donate">Donate</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- PAGE HERO -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Home</a>
+  <a href="about.html" class="active">👋 About</a>
+  <a href="program.html">🔬 Programs</a>
+  <a href="events.html">📅 Events</a>
+  <a href="contact.html">✉️ Contact</a>
+  <a href="volunteer.html">🤝 Volunteer</a>
+  <a href="donate.html" class="btn-donate-mobile">💛 Donate</a>
+</div>
+
 <div class="page-hero">
   <div class="page-hero-inner">
     <div class="page-hero-text">
@@ -146,35 +166,34 @@
     <div class="page-hero-img img-ph">
       <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
       <div class="img-ph-label">About Hero Photo</div>
-      <div class="img-ph-sub">e.g. &lt;img src="about-hero.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:20px;"&gt;</div>
+      <div class="img-ph-sub">Replace with a real photo</div>
     </div>
   </div>
 </div>
 
 <div class="wave-divider" style="background:var(--white);">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#D6EEFF"/>
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#D4F5E9"/>
   </svg>
 </div>
 
-<!-- VALUES -->
 <section class="values-section">
   <div class="values-inner">
     <div class="section-label">What We Stand For</div>
     <h2 class="section-title">Our Core Values</h2>
     <div class="values-grid">
       <div class="value-card">
-  
+        <div class="value-icon">🌟</div>
         <div class="value-title">Youth-Led Impact</div>
         <p class="value-desc">High school students leading the next generation into STEM careers and innovation. We believe young people have the power to teach and inspire each other.</p>
       </div>
       <div class="value-card">
-      
+        <div class="value-icon">🏡</div>
         <div class="value-title">Community Driven</div>
         <p class="value-desc">Rooted in San Antonio, serving our local schools and neighborhoods. Every session we run stays close to home and close to the community we love.</p>
       </div>
       <div class="value-card">
-      
+        <div class="value-icon">💡</div>
         <div class="value-title">Real Impact</div>
         <p class="value-desc">Every session sparks curiosity that lasts a lifetime. We measure success not by test scores but by the excitement on a student's face when something clicks.</p>
       </div>
@@ -188,7 +207,6 @@
   </svg>
 </div>
 
-<!-- TEAM -->
 <section class="team-section">
   <div class="team-inner">
     <div class="section-label">The People Behind It</div>
@@ -203,7 +221,7 @@
         </div>
         <div class="team-info">
           <div class="team-name">Nidhi Mehta</div>
-          <div class="team-role">Co-Founder and Program Coordinator</div>
+          <div class="team-role">Co-Founder &amp; Program Coordinator</div>
           <p class="team-bio">Short bio about this student leader — interests, grade, what drives them.</p>
         </div>
       </div>
@@ -215,7 +233,7 @@
         </div>
         <div class="team-info">
           <div class="team-name">Mannat Sangha</div>
-          <div class="team-role">Co-Founder and Program Coordinator</div>
+          <div class="team-role">Co-Founder &amp; Program Coordinator</div>
           <p class="team-bio">Short bio about this student leader — interests, grade, what drives them.</p>
         </div>
       </div>
@@ -227,7 +245,7 @@
         </div>
         <div class="team-info">
           <div class="team-name">Sana Charles</div>
-          <div class="team-role">Co-Founder and Activities Manager</div>
+          <div class="team-role">Co-Founder &amp; Activities Manager</div>
           <p class="team-bio">Short bio about this student leader — interests, grade, what drives them.</p>
         </div>
       </div>
@@ -239,7 +257,7 @@
         </div>
         <div class="team-info">
           <div class="team-name">Anikka Love Bone</div>
-          <div class="team-role">Co-Founder and Outreach Coordinator</div>
+          <div class="team-role">Co-Founder &amp; Outreach Coordinator</div>
           <p class="team-bio">Short bio about this student leader — interests, grade, what drives them.</p>
         </div>
       </div>
@@ -253,7 +271,6 @@
   </svg>
 </div>
 
-<!-- OUR STORY -->
 <section class="story-section">
   <div class="story-inner">
     <div class="story-text">
@@ -287,12 +304,27 @@
         </a>
         <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
       </div>
-      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li><li><a href="volunteer.html">Volunteer</a></li></ul></div>
       <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Science Activities</a></li><li><a href="program.html">Coding Sessions</a></li><li><a href="program.html">Robotics Workshops</a></li><li><a href="program.html">STEM Career Talks</a></li></ul></div>
       <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate →</a></div>
   </div>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
 </body>
 </html>
