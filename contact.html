@@ -69,6 +69,11 @@
   .form-group textarea{min-height:130px;resize:vertical;}
   .btn-submit{background:var(--pink);color:var(--dark);padding:14px 32px;border-radius:var(--radius-pill);font-family:'Baloo 2',cursive;font-weight:800;font-size:1rem;border:2.5px solid var(--pink-dark);box-shadow:0 5px 0 var(--pink-dark);transition:transform .15s;cursor:pointer;}
   .btn-submit:hover{transform:translateY(-3px);background:var(--mint);border-color:var(--mint-dark);box-shadow:0 8px 0 var(--mint-dark);}
+  .btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+
+  .form-status{font-size:0.88rem;font-weight:700;font-family:'Baloo 2',cursive;margin-top:6px;display:none;padding:10px 14px;border-radius:var(--radius-sm);}
+  .form-status.success{display:block;background:var(--mint-light);color:#2d6b52;border:2px solid var(--mint-dark);}
+  .form-status.error{display:block;background:#ffe0e0;color:#a02c2c;border:2px solid #e07a7a;}
 
   .wave-divider{width:100%;overflow:hidden;line-height:0;}
   .wave-divider svg{display:block;width:100%;}
@@ -171,12 +176,12 @@
 
     <div class="contact-form-wrap">
       <div class="form-title">Send Us a Message 💌</div>
-      <form class="contact-form" onsubmit="return false;">
-        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name"/></div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group"><label>Your Name</label><input type="text" id="cf-name" name="name" placeholder="Full name" required/></div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="cf-email" name="email" placeholder="you@example.com" required/></div>
         <div class="form-group">
           <label>What's this about?</label>
-          <select>
+          <select id="cf-subject" name="subject">
             <option>General Inquiry</option>
             <option>Session Sign Up</option>
             <option>Volunteer</option>
@@ -185,8 +190,9 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="form-group"><label>Your Message</label><textarea placeholder="Tell us about yourself or how you'd like to get involved..."></textarea></div>
-        <button type="submit" class="btn-submit">Send Message 🚀</button>
+        <div class="form-group"><label>Your Message</label><textarea id="cf-message" name="message" placeholder="Tell us about yourself or how you'd like to get involved..."></textarea></div>
+        <button type="submit" class="btn-submit" id="cf-submit-btn">Send Message 🚀</button>
+        <div class="form-status" id="cf-status"></div>
       </form>
     </div>
   </div>
@@ -229,6 +235,61 @@
       mobileMenu.classList.remove('open');
     });
   });
+
+  // ===== Google Sheets form submission =====
+  // 1. Paste your Apps Script Web App URL below (see setup instructions).
+  const SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbx67Qbylgm1rqvEtSvDRxQBJCtgt5SGSTAwg-DD2ba7atlxpuiqhRI3DM5Qe3SXAvejPQ/exec';
+
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('cf-submit-btn');
+  const statusEl = document.getElementById('cf-status');
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value;
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email) {
+      showStatus('Please fill in your name and email.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    statusEl.style.display = 'none';
+
+    fetch(SHEET_WEBAPP_URL, {
+      method: 'POST',
+      // 'text/plain' avoids a CORS preflight; Apps Script still parses the JSON body fine.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ name, email, subject, message })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.result === 'success') {
+          showStatus("Thanks! Your message has been sent. We'll be in touch soon. 🎉", 'success');
+          contactForm.reset();
+        } else {
+          showStatus('Something went wrong. Please try again or email us directly.', 'error');
+        }
+      })
+      .catch(() => {
+        showStatus('Something went wrong. Please try again or email us directly.', 'error');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message 🚀';
+      });
+  });
+
+  function showStatus(text, type) {
+    statusEl.textContent = text;
+    statusEl.className = 'form-status ' + type;
+    statusEl.style.display = 'block';
+  }
 </script>
 </body>
 </html>
