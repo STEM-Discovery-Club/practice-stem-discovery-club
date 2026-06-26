@@ -711,9 +711,9 @@
 
     fetch(GOOGLE_SHEET_SCRIPT_URL, {
       method: 'POST',
-      // 'text/plain' avoids a CORS preflight; Apps Script still parses the JSON body fine.
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify({ name, email, subject, message })
+      // Send form-encoded so the Apps Script's doPost can read the fields from e.parameter.
+      // URLSearchParams sets a CORS-safelisted content type, so no preflight is triggered.
+      body: new URLSearchParams({ name, email, subject, message })
     })
       .then((res) => res.json())
       .then((data) => {
