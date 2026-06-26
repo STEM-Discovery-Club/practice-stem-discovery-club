@@ -691,49 +691,53 @@
   const submitBtn = document.getElementById('submitBtn');
   const formStatus = document.getElementById('formStatus');
 
-  // Hidden iframe target lets the form POST natively (browser-handled redirect),
-  // which Google Apps Script's /exec URL requires. fetch() with no-cors does not
-  // reliably survive that redirect, which is why postData was arriving empty.
-  const hiddenIframe = document.createElement('iframe');
-  hiddenIframe.name = 'hidden-signup-target';
-  hiddenIframe.style.display = 'none';
-  document.body.appendChild(hiddenIframe);
+  signupForm.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  signupForm.setAttribute('action', GOOGLE_SHEET_SCRIPT_URL);
-  signupForm.setAttribute('method', 'POST');
-  signupForm.setAttribute('target', 'hidden-signup-target');
+    const name = signupForm.querySelector('[name="name"]').value.trim();
+    const email = signupForm.querySelector('[name="email"]').value.trim();
+    // The "What's this about?" dropdown is the purpose; the Apps Script reads it as `subject`.
+    const subject = signupForm.querySelector('[name="topic"]').value;
+    const message = signupForm.querySelector('[name="message"]').value.trim();
 
-  // Apps Script's doPost reads JSON from e.postData.contents, but a native
-  // form POST sends standard form-encoded fields (e.parameter.name etc), not JSON.
-  // Rename fields right before submit so the payload matches what the sheet script expects,
-  // and add a hidden 'subject' field mirroring 'topic' since doPost reads data.subject.
-  signupForm.addEventListener('submit', function () {
+    if (!name || !email) {
+      showStatus('Please fill in your name and email.', 'error');
+      return;
+    }
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
-    formStatus.className = 'form-status';
     formStatus.style.display = 'none';
 
-    // Mirror the topic dropdown into a hidden 'subject' field for the script to read
-    let subjectField = signupForm.querySelector('input[name="subject"]');
-    if (!subjectField) {
-      subjectField = document.createElement('input');
-      subjectField.type = 'hidden';
-      subjectField.name = 'subject';
-      signupForm.appendChild(subjectField);
-    }
-    subjectField.value = signupForm.querySelector('select[name="topic"]').value;
-
-    // We can't read the iframe's cross-origin response, so show success after a short delay
-    // and reset the form. Check the Executions log or the sheet itself to confirm delivery.
-    setTimeout(() => {
-      formStatus.textContent = "Thanks! Your message has been sent. We'll be in touch soon!";
-      formStatus.classList.add('success');
-      formStatus.style.display = 'block';
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Message';
-      signupForm.reset();
-    }, 1200);
+    fetch(GOOGLE_SHEET_SCRIPT_URL, {
+      method: 'POST',
+      // 'text/plain' avoids a CORS preflight; Apps Script still parses the JSON body fine.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ name, email, subject, message })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.result === 'success') {
+          showStatus("Thanks! Your message has been sent. We'll be in touch soon!", 'success');
+          signupForm.reset();
+        } else {
+          showStatus('Something went wrong. Please try again or email us directly.', 'error');
+        }
+      })
+      .catch(() => {
+        showStatus('Something went wrong. Please try again or email us directly.', 'error');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      });
   });
+
+  function showStatus(text, type) {
+    formStatus.textContent = text;
+    formStatus.className = 'form-status ' + type;
+    formStatus.style.display = 'block';
+  }
 </script>
 </body>
 </html>
