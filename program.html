@@ -64,6 +64,14 @@
   .program-card:nth-child(3):hover{box-shadow:0 10px 0 var(--yellow-dark);}
   .program-card:nth-child(4){border-color:var(--lavender);box-shadow:0 6px 0 #9980CC;}
   .program-card:nth-child(4):hover{box-shadow:0 10px 0 #9980CC;}
+  .program-card:nth-child(5){border-color:var(--mint-dark);box-shadow:0 6px 0 var(--mint-dark);}
+  .program-card:nth-child(5):hover{box-shadow:0 10px 0 var(--mint-dark);}
+  .program-card:nth-child(6){border-color:var(--coral);box-shadow:0 6px 0 var(--coral);}
+  .program-card:nth-child(6):hover{box-shadow:0 10px 0 var(--coral);}
+  .program-card:nth-child(7){border-color:var(--peach);box-shadow:0 6px 0 #E8955A;}
+  .program-card:nth-child(7):hover{box-shadow:0 10px 0 #E8955A;}
+  .program-card:nth-child(8){border-color:var(--pink);box-shadow:0 6px 0 var(--pink-dark);}
+  .program-card:nth-child(8):hover{box-shadow:0 10px 0 var(--pink-dark);}
   .program-card-img{height:160px;}
   .program-card-body{padding:24px 26px 28px;}
   .program-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
@@ -71,6 +79,10 @@
   .program-card:nth-child(2) .program-icon{background:var(--sky-light);border-color:var(--sky);}
   .program-card:nth-child(3) .program-icon{background:var(--yellow-light);border-color:var(--yellow);}
   .program-card:nth-child(4) .program-icon{background:var(--lavender-light);border-color:var(--lavender);}
+  .program-card:nth-child(5) .program-icon{background:var(--mint-light);border-color:var(--mint-dark);}
+  .program-card:nth-child(6) .program-icon{background:#FFE0D6;border-color:var(--coral);}
+  .program-card:nth-child(7) .program-icon{background:var(--peach-light);border-color:var(--peach);}
+  .program-card:nth-child(8) .program-icon{background:var(--pink-light);border-color:var(--pink);}
   .program-card h3{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--dark);margin-bottom:10px;}
   .program-card p{font-size:0.9rem;color:var(--dark2);font-weight:600;line-height:1.7;}
   .program-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
@@ -78,15 +90,10 @@
   .program-card:nth-child(2) .program-tag{background:var(--sky-light);border-color:var(--sky);}
   .program-card:nth-child(3) .program-tag{background:var(--yellow-light);border-color:var(--yellow);}
   .program-card:nth-child(4) .program-tag{background:var(--lavender-light);border-color:var(--lavender);}
-
-  /* Gallery */
-  .gallery-section{padding:80px 5vw;background:var(--white);}
-  .gallery-inner{max-width:1100px;margin:0 auto;}
-  .section-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--pink-dark);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
-  .section-title{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3.5vw,2.5rem);line-height:1.15;color:var(--dark);margin-bottom:1.2rem;}
-  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:2rem;}
-  .gallery-item{border-radius:var(--radius);overflow:hidden;}
-  .gallery-item.tall{grid-row:span 2;}
+  .program-card:nth-child(5) .program-tag{background:var(--mint-light);border-color:var(--mint-dark);}
+  .program-card:nth-child(6) .program-tag{background:#FFE0D6;border-color:var(--coral);}
+  .program-card:nth-child(7) .program-tag{background:var(--peach-light);border-color:var(--peach);}
+  .program-card:nth-child(8) .program-tag{background:var(--pink-light);border-color:var(--pink);}
 
   /* CTA strip */
   .cta-strip{padding:70px 5vw;background:var(--yellow);text-align:center;border-top:4px solid var(--yellow-dark);border-bottom:4px solid var(--yellow-dark);position:relative;}
@@ -115,10 +122,9 @@
   @media(max-width:768px){
     .nav-links{display:none;}
     .menu-btn{display:flex;}
-    .gallery-grid{grid-template-columns:1fr 1fr;}
     .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
   }
-  @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}}
+  @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -163,15 +169,14 @@
     <div class="programs-grid">
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--pink);">
-          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="img-ph-label">Science Program Photo</div>
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3"/><path d="M7.5 15h9"/></svg></div>
         </div>
         <div class="program-card-body">
           <div class="program-icon-row">
           
           </div>
-          <h3>Science Explorations</h3>
-          <p>Discover the wonders of science through fun experiments and guided activities that make learning come alive.</p>
+          <h3>Biology</h3>
+          <p>Explore living things up close — from cells to ecosystems — through hands-on experiments and observation.</p>
           <div class="program-tags">
             <span class="program-tag">Ages 6–12</span>
             <span class="program-tag">Hands-on</span>
@@ -182,17 +187,16 @@
 
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--sky);">
-          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="img-ph-label">Coding Program Photo</div>
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6.5L4.2 18a2 2 0 0 0 1.8 2.9h12a2 2 0 0 0 1.8-2.9L15 8.5V2"/><path d="M9 2h6"/><path d="M9 14h6"/></svg></div>
         </div>
         <div class="program-card-body">
           <div class="program-icon-row">
           </div>
-          <h3>Tech &amp; Coding</h3>
-          <p>Learn beginner-friendly coding, logic, and technology skills through simple and engaging projects.</p>
+          <h3>Chemistry</h3>
+          <p>Mix, react, and discover through safe, guided experiments that reveal the science behind everyday materials.</p>
           <div class="program-tags">
             <span class="program-tag">Ages 8–14</span>
-            <span class="program-tag">Beginner-Friendly</span>
+            <span class="program-tag">Hands-on</span>
             <span class="program-tag">Free</span>
           </div>
         </div>
@@ -200,14 +204,85 @@
 
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--yellow);">
-          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="img-ph-label">Engineering Program Photo</div>
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg></div>
         </div>
         <div class="program-card-body">
           <div class="program-icon-row">
             
           </div>
-          <h3>Engineering Challenges</h3>
+          <h3>Physics</h3>
+          <p>Investigate motion, energy, and forces through playful experiments that make big ideas easy to grasp.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 8–14</span>
+            <span class="program-tag">Hands-on</span>
+            <span class="program-tag">Free</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--lavender);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/><circle cx="18" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg></div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-icon-row">
+           
+          </div>
+          <h3>Astronomy</h3>
+          <p>Look up and wonder — students explore planets, stars, and space through models and stargazing activities.</p>
+          <div class="program-tags">
+            <span class="program-tag">All Ages</span>
+            <span class="program-tag">Stargazing</span>
+            <span class="program-tag">Free</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--mint-dark);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 5 12 5 6c6 0 7 4 7 6z"/><path d="M12 12c0 0 7 0 7-6-6 0-7 4-7 6z"/></svg></div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-icon-row">
+          
+          </div>
+          <h3>Plant Science</h3>
+          <p>Grow, observe, and learn how plants live and thrive through gardening projects and simple botany experiments.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 6–12</span>
+            <span class="program-tag">Hands-on</span>
+            <span class="program-tag">Free</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--coral);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-icon-row">
+          
+          </div>
+          <h3>Health Science</h3>
+          <p>Discover how the human body works and build healthy habits through age-appropriate, hands-on activities.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 8–14</span>
+            <span class="program-tag">Hands-on</span>
+            <span class="program-tag">Free</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--peach);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-icon-row">
+            
+          </div>
+          <h3>Engineering</h3>
           <p>Design, build, test, and solve real-world problems through creative teamwork and innovative thinking.</p>
           <div class="program-tags">
             <span class="program-tag">All Ages</span>
@@ -218,15 +293,14 @@
       </div>
 
       <div class="program-card">
-        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--lavender);">
-          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="img-ph-label">Math Program Photo</div>
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--pink);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h6M6 3v6"/><path d="M15 6h6"/><path d="M3 15l6 6M9 15l-6 6"/><path d="M15 18h6"/><circle cx="18" cy="14.5" r="0.9" fill="#7B7A99" stroke="none"/><circle cx="18" cy="21.5" r="0.9" fill="#7B7A99" stroke="none"/></svg></div>
         </div>
         <div class="program-card-body">
           <div class="program-icon-row">
            
           </div>
-          <h3>Math in Action</h3>
+          <h3>Math</h3>
           <p>Apply math in exciting and practical ways through games, puzzles, and real-world activities.</p>
           <div class="program-tags">
             <span class="program-tag">Ages 6–12</span>
@@ -240,43 +314,6 @@
 </section>
 
 <div class="wave-divider" style="background:var(--mint-light);">
-  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#FFFDF7"/>
-  </svg>
-</div>
-
-<!-- PHOTO GALLERY -->
-<section class="gallery-section">
-  <div class="gallery-inner">
-    <div class="section-label">In Action</div>
-    <h2 class="section-title">Program Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item tall img-ph" style="min-height:300px;">
-        <div class="img-ph-icon">📷</div>
-        <div class="img-ph-label">Gallery Photo 1</div>
-        <div class="img-ph-sub">Tall feature image</div>
-      </div>
-      <div class="gallery-item img-ph" style="min-height:140px;">
-        <div class="img-ph-icon">📷</div>
-        <div class="img-ph-label">Gallery Photo 2</div>
-      </div>
-      <div class="gallery-item img-ph" style="min-height:140px;">
-        <div class="img-ph-icon">📷</div>
-        <div class="img-ph-label">Gallery Photo 3</div>
-      </div>
-      <div class="gallery-item img-ph" style="min-height:140px;">
-        <div class="img-ph-icon">📷</div>
-        <div class="img-ph-label">Gallery Photo 4</div>
-      </div>
-      <div class="gallery-item img-ph" style="min-height:140px;">
-        <div class="img-ph-icon">📷</div>
-        <div class="img-ph-label">Gallery Photo 5</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="wave-divider" style="background:var(--white);">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#FFE566"/>
   </svg>
@@ -305,7 +342,7 @@
         <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
       </div>
       <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Science Activities</a></li><li><a href="program.html">Coding Sessions</a></li><li><a href="program.html">Robotics Workshops</a></li><li><a href="program.html">STEM Career Talks</a></li></ul></div>
+      <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Biology &amp; Chemistry</a></li><li><a href="program.html">Physics &amp; Astronomy</a></li><li><a href="program.html">Plant &amp; Health Science</a></li><li><a href="program.html">Math &amp; Engineering</a></li></ul></div>
       <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate →</a></div>
