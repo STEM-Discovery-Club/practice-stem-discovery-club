@@ -182,6 +182,44 @@
   .img-ph-label{font-size:0.8rem;font-weight:800;color:var(--dark2);text-align:center;padding:0 16px;font-family:'Baloo 2',cursive;}
   .img-ph-sub{font-size:0.72rem;color:var(--gray);font-weight:600;text-align:center;padding:0 16px;}
   .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);animation:shimmer2 2.8s infinite;}
+  .program-card{background:#fff;border-radius:var(--radius);border:2.5px solid var(--pink);box-shadow:0 6px 0 var(--pink-dark);overflow:hidden;transition:transform .2s,box-shadow .2s;}
+  .program-card:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 10px 0 var(--pink-dark);}
+  .program-card:nth-child(2){border-color:var(--sky);box-shadow:0 6px 0 var(--sky-dark);}
+  .program-card:nth-child(2):hover{box-shadow:0 10px 0 var(--sky-dark);}
+  .program-card:nth-child(3){border-color:var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);}
+  .program-card:nth-child(3):hover{box-shadow:0 10px 0 var(--yellow-dark);}
+  .program-card:nth-child(4){border-color:var(--lavender);box-shadow:0 6px 0 #9980CC;}
+  .program-card:nth-child(4):hover{box-shadow:0 10px 0 #9980CC;}
+  .program-card:nth-child(5){border-color:var(--mint-dark);box-shadow:0 6px 0 var(--mint-dark);}
+  .program-card:nth-child(5):hover{box-shadow:0 10px 0 var(--mint-dark);}
+  .program-card:nth-child(6){border-color:var(--coral);box-shadow:0 6px 0 var(--coral);}
+  .program-card:nth-child(6):hover{box-shadow:0 10px 0 var(--coral);}
+  .program-card:nth-child(7){border-color:var(--peach);box-shadow:0 6px 0 #E8955A;}
+  .program-card:nth-child(7):hover{box-shadow:0 10px 0 #E8955A;}
+  .program-card:nth-child(8){border-color:var(--pink);box-shadow:0 6px 0 var(--pink-dark);}
+  .program-card:nth-child(8):hover{box-shadow:0 10px 0 var(--pink-dark);}
+  .program-card-img{height:160px;}
+  .program-card-body{padding:24px 26px 28px;}
+  .program-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .program-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:var(--pink-light);border:2px solid var(--pink);}
+  .program-card:nth-child(2) .program-icon{background:var(--sky-light);border-color:var(--sky);}
+  .program-card:nth-child(3) .program-icon{background:var(--yellow-light);border-color:var(--yellow);}
+  .program-card:nth-child(4) .program-icon{background:var(--lavender-light);border-color:var(--lavender);}
+  .program-card:nth-child(5) .program-icon{background:var(--mint-light);border-color:var(--mint-dark);}
+  .program-card:nth-child(6) .program-icon{background:#FFE0D6;border-color:var(--coral);}
+  .program-card:nth-child(7) .program-icon{background:var(--peach-light);border-color:var(--peach);}
+  .program-card:nth-child(8) .program-icon{background:var(--pink-light);border-color:var(--pink);}
+  .program-card h3{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--dark);margin-bottom:10px;}
+  .program-card p{font-size:0.9rem;color:var(--dark2);font-weight:600;line-height:1.7;}
+  .program-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .program-tag{padding:4px 12px;border-radius:var(--radius-pill);font-size:0.75rem;font-weight:800;font-family:'Baloo 2',cursive;background:var(--pink-light);color:var(--dark);border:1.5px solid var(--pink);}
+  .program-card:nth-child(2) .program-tag{background:var(--sky-light);border-color:var(--sky);}
+  .program-card:nth-child(3) .program-tag{background:var(--yellow-light);border-color:var(--yellow);}
+  .program-card:nth-child(4) .program-tag{background:var(--lavender-light);border-color:var(--lavender);}
+  .program-card:nth-child(5) .program-tag{background:var(--mint-light);border-color:var(--mint-dark);}
+  .program-card:nth-child(6) .program-tag{background:#FFE0D6;border-color:var(--coral);}
+  .program-card:nth-child(7) .program-tag{background:var(--peach-light);border-color:var(--peach);}
+  .program-card:nth-child(8) .program-tag{background:var(--pink-light);border-color:var(--pink);}
 
   /* ── CTA ── */
   .cta-strip{padding:70px 5vw;background:var(--yellow);text-align:center;border-top:4px solid var(--yellow-dark);border-bottom:4px solid var(--yellow-dark);position:relative;}
@@ -211,13 +249,13 @@
   @media(max-width:768px){
     .nav-links{display:none;}
     .menu-btn{display:flex;}
-    .gallery-grid{grid-template-columns:1fr 1fr;}
     .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
   }
   @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}}
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}
   }
+  @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -273,6 +311,9 @@
           <span class="sparkle sparkle-1">⭐</span>
           <span class="sparkle sparkle-2">💫</span>
           <span class="sparkle sparkle-3">✨</span>
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--pink);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3"/><path d="M7.5 15h9"/></svg></div>
         </div>
         <div class="program-card-body">
           <h3>Chemistry Lab</h3>
@@ -301,6 +342,8 @@
         <div class="program-card-body">
           <h3>Physics in Motion</h3>
           <p>Forces, energy, light, and sound — students investigate the laws of the universe through exciting demos, simple machines, and real-world challenges. Activities are leveled so every age group is appropriately challenged.</p>
+          <h3>Biology</h3>
+          <p>Explore living things up close — from cells to ecosystems — through hands-on experiments and observation.</p>
           <div class="program-tags">
             <span class="program-tag">Ages 6–12</span>
             <span class="program-tag">Demos</span>
@@ -321,6 +364,9 @@
           <span class="sparkle sparkle-1">⭐</span>
           <span class="sparkle sparkle-2">💫</span>
           <span class="sparkle sparkle-3">✨</span>
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--sky);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6.5L4.2 18a2 2 0 0 0 1.8 2.9h12a2 2 0 0 0 1.8-2.9L15 8.5V2"/><path d="M9 2h6"/><path d="M9 14h6"/></svg></div>
         </div>
         <div class="program-card-body">
           <h3>Biology Explorers</h3>
@@ -352,6 +398,11 @@
           <div class="program-tags">
             <span class="program-tag">All Ages</span>
             <span class="program-tag">Stargazing</span>
+          <h3>Chemistry</h3>
+          <p>Mix, react, and discover through safe, guided experiments that reveal the science behind everyday materials.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 8–14</span>
+            <span class="program-tag">Hands-on</span>
             <span class="program-tag">Free</span>
           </div>
         </div>
@@ -369,6 +420,9 @@
           <span class="sparkle sparkle-1">⭐</span>
           <span class="sparkle sparkle-2">💫</span>
           <span class="sparkle sparkle-3">✨</span>
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--yellow);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg></div>
         </div>
         <div class="program-card-body">
           <h3>Plant Science</h3>
@@ -421,6 +475,16 @@
         <div class="program-card-body">
           <h3>Engineering Challenges</h3>
           <p>Design, build, test, and solve real-world problems through creative teamwork and innovative thinking. Activities are leveled so every age group is appropriately challenged.</p>
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--peach);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-icon-row">
+            
+          </div>
+          <h3>Engineering</h3>
+          <p>Design, build, test, and solve real-world problems through creative teamwork and innovative thinking.</p>
           <div class="program-tags">
             <span class="program-tag">All Ages</span>
             <span class="program-tag">Team-Based</span>
@@ -445,6 +509,16 @@
         <div class="program-card-body">
           <h3>Math in Action</h3>
           <p>Apply math in exciting and practical ways through games, puzzles, and real-world activities. Activities are leveled so every age group is appropriately challenged.</p>
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--pink);">
+          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h6M6 3v6"/><path d="M15 6h6"/><path d="M3 15l6 6M9 15l-6 6"/><path d="M15 18h6"/><circle cx="18" cy="14.5" r="0.9" fill="#7B7A99" stroke="none"/><circle cx="18" cy="21.5" r="0.9" fill="#7B7A99" stroke="none"/></svg></div>
+        </div>
+        <div class="program-card-body">
+          <div class="program-icon-row">
+           
+          </div>
+          <h3>Math</h3>
+          <p>Apply math in exciting and practical ways through games, puzzles, and real-world activities.</p>
           <div class="program-tags">
             <span class="program-tag">Ages 6–12</span>
             <span class="program-tag">Games &amp; Puzzles</span>
@@ -523,6 +597,7 @@
       </div>
       <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Chemistry Lab</a></li><li><a href="program.html">Physics in Motion</a></li><li><a href="program.html">Biology Explorers</a></li><li><a href="program.html">Astronomy &amp; Space</a></li><li><a href="program.html">Plant Science</a></li><li><a href="program.html">Health Science</a></li></ul></div>
+      <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Biology &amp; Chemistry</a></li><li><a href="program.html">Physics &amp; Astronomy</a></li><li><a href="program.html">Plant &amp; Health Science</a></li><li><a href="program.html">Math &amp; Engineering</a></li></ul></div>
       <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate →</a></div>
