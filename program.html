@@ -11,6 +11,7 @@
   html{scroll-behavior:smooth;}
   body{font-family:'Nunito',sans-serif;background:var(--mint-light);color:var(--dark);line-height:1.65;overflow-x:hidden;}
 
+  /* ── NAV ── */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,253,247,0.97);backdrop-filter:blur(14px);border-bottom:3px solid var(--pink-light);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:68px;}
   .nav-logo{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:12px;}
   .logo-bubble{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--yellow) 0%,var(--pink) 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 var(--yellow-dark);}
@@ -20,8 +21,6 @@
   .nav-links a.active{color:var(--pink-dark);border-bottom:2.5px solid var(--pink-dark);padding-bottom:2px;}
   .nav-links .btn-donate{background:var(--pink);color:var(--dark);padding:9px 22px;border-radius:var(--radius-pill);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);transition:transform .15s;}
   .nav-links .btn-donate:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--pink-dark);background:var(--yellow);border-color:var(--yellow-dark);}
-
-  /* Mobile menu button (hidden on desktop) */
   .menu-btn{display:none;width:46px;height:46px;border-radius:14px;background:var(--pink-light);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);align-items:center;justify-content:center;cursor:pointer;transition:transform .15s,box-shadow .15s,background .2s;flex-shrink:0;}
   .menu-btn:hover{background:var(--yellow);border-color:var(--yellow-dark);box-shadow:0 4px 0 var(--yellow-dark);}
   .menu-btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-dark);}
@@ -29,8 +28,6 @@
   .menu-btn .icon-close{display:none;}
   .menu-btn.open .icon-burger{display:none;}
   .menu-btn.open .icon-close{display:block;}
-
-  /* Mobile dropdown panel */
   .mobile-menu{position:fixed;top:68px;left:0;right:0;z-index:99;background:var(--white);border-bottom:3px solid var(--pink-light);box-shadow:0 12px 24px rgba(45,42,69,0.12);max-height:0;overflow:hidden;transition:max-height .3s ease;}
   .mobile-menu.open{max-height:420px;}
   .mobile-menu ul{list-style:none;display:flex;flex-direction:column;padding:1rem 5vw 1.5rem;gap:0.9rem;}
@@ -38,14 +35,7 @@
   .mobile-menu ul a.active{color:var(--pink-dark);}
   .mobile-menu ul a.btn-donate{background:var(--pink);color:var(--dark);padding:11px 22px;border-radius:var(--radius-pill);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);text-align:center;width:fit-content;}
 
-  @keyframes shimmer{to{left:160%}}
-  .img-ph{border:3px dashed rgba(100,80,180,0.3);border-radius:var(--radius);background:linear-gradient(135deg,var(--yellow-light) 0%,var(--mint-light) 50%,var(--pink-light) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:transform .25s;}
-  .img-ph:hover{border-color:var(--lavender);transform:translateY(-4px) rotate(1deg);}
-  .img-ph-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
-  .img-ph-label{font-size:0.8rem;font-weight:800;color:var(--dark2);text-align:center;padding:0 16px;font-family:'Baloo 2',cursive;letter-spacing:.04em;}
-  .img-ph-sub{font-size:0.72rem;color:var(--gray);font-weight:600;text-align:center;padding:0 16px;}
-  .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);animation:shimmer 2.8s infinite;}
-
+  /* ── HERO ── */
   .page-hero{padding:120px 5vw 70px;background:var(--mint-light);position:relative;overflow:hidden;}
   .page-hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:radial-gradient(circle,rgba(100,180,150,0.15) 2px,transparent 2px);background-size:36px 36px;}
   .page-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
@@ -53,9 +43,145 @@
   .page-title{font-family:'Fredoka One',cursive;font-size:clamp(2rem,4vw,3rem);line-height:1.15;color:var(--dark);margin-bottom:1rem;}
   .page-desc{font-size:1rem;color:var(--dark2);max-width:560px;font-weight:700;}
 
+  /* ── ANIMATIONS ── */
+  @keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  @keyframes floatUpAlt{0%,100%{transform:translateY(-6px) rotate(8deg)}50%{transform:translateY(4px) rotate(-5deg)}}
+  @keyframes floatSide{0%,100%{transform:translateX(0) rotate(-6deg)}50%{transform:translateX(8px) rotate(6deg)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes spinSlow{to{transform:rotate(-360deg)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+  @keyframes bounceIn{0%{opacity:0;transform:translateY(40px) scale(0.95)}60%{transform:translateY(-8px) scale(1.03)}100%{opacity:1;transform:translateY(0) scale(1)}}
+  @keyframes sparkle{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(180deg)}}
+  @keyframes tagPop{0%{opacity:0;transform:scale(0.7) translateY(6px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+  @keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+  @keyframes bgPan{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  @keyframes blobMorph{0%,100%{border-radius:60% 40% 55% 45%/50% 60% 40% 55%}33%{border-radius:40% 60% 45% 55%/60% 40% 55% 45%}66%{border-radius:55% 45% 60% 40%/45% 55% 40% 60%}}
+  @keyframes orbit{from{transform:rotate(0deg) translateX(32px) rotate(0deg)}to{transform:rotate(360deg) translateX(32px) rotate(-360deg)}}
+  @keyframes fadeSlideUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes wiggle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+
+  /* ── CARD ENTRANCE (scroll-driven via JS IntersectionObserver) ── */
+  .program-card{
+    opacity:0;
+    transform:translateY(40px);
+    transition:opacity 0.55s cubic-bezier(.22,1,.36,1), transform 0.55s cubic-bezier(.22,1,.36,1),
+               box-shadow 0.22s ease;
+  }
+  .program-card.visible{opacity:1;transform:translateY(0);}
+
+  /* ── CARD BASE ── */
+  .program-card{background:#fff;border-radius:var(--radius);border:2.5px solid var(--pink);box-shadow:0 6px 0 var(--pink-dark);overflow:hidden;position:relative;}
+  .program-card:hover{transform:translateY(-8px) rotate(-0.8deg) !important;box-shadow:0 14px 0 var(--pink-dark);}
+  .program-card.visible:hover{transform:translateY(-8px) rotate(-0.8deg);}
+
+  /* color variants */
+  .program-card[data-color="sky"]{border-color:var(--sky);box-shadow:0 6px 0 var(--sky-dark);}
+  .program-card[data-color="sky"]:hover{box-shadow:0 14px 0 var(--sky-dark);}
+  .program-card[data-color="sky"] .program-tag{background:var(--sky-light);border-color:var(--sky);}
+  .program-card[data-color="yellow"]{border-color:var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);}
+  .program-card[data-color="yellow"]:hover{box-shadow:0 14px 0 var(--yellow-dark);}
+  .program-card[data-color="yellow"] .program-tag{background:var(--yellow-light);border-color:var(--yellow);}
+  .program-card[data-color="lavender"]{border-color:var(--lavender);box-shadow:0 6px 0 #9980CC;}
+  .program-card[data-color="lavender"]:hover{box-shadow:0 14px 0 #9980CC;}
+  .program-card[data-color="lavender"] .program-tag{background:var(--lavender-light);border-color:var(--lavender);}
+  .program-card[data-color="mint"]{border-color:var(--mint);box-shadow:0 6px 0 var(--mint-dark);}
+  .program-card[data-color="mint"]:hover{box-shadow:0 14px 0 var(--mint-dark);}
+  .program-card[data-color="mint"] .program-tag{background:var(--mint-light);border-color:var(--mint);}
+  .program-card[data-color="peach"]{border-color:var(--peach);box-shadow:0 6px 0 #D4845A;}
+  .program-card[data-color="peach"]:hover{box-shadow:0 14px 0 #D4845A;}
+  .program-card[data-color="peach"] .program-tag{background:var(--peach-light);border-color:var(--peach);}
+  .program-card .program-tag{background:var(--pink-light);border-color:var(--pink);}
+
+  /* ── ANIMATED CARD IMAGE HEADER ── */
+  .card-anim-header{
+    height:180px;
+    position:relative;
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:2.5px solid var(--pink);
+  }
+  .card-anim-header .bg-blob{
+    position:absolute;
+    width:200px;height:200px;
+    opacity:0.35;
+    animation:blobMorph 6s ease-in-out infinite, bgPan 8s ease-in-out infinite;
+  }
+  .card-anim-header .main-icon{
+    font-size:4rem;
+    position:relative;z-index:2;
+    filter:drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+  }
+  .card-anim-header .orbit-icon,
+  .card-anim-header .float-a,
+  .card-anim-header .float-b,
+  .card-anim-header .float-c,
+  .card-anim-header .float-d{display:none;}
+  /* sparkle stars on hover */
+  .card-anim-header .sparkle{
+    position:absolute;z-index:4;font-size:1rem;opacity:0;
+    transition:opacity .2s;
+    pointer-events:none;
+  }
+  .program-card:hover .card-anim-header .sparkle{
+    animation:sparkle 0.7s ease-in-out forwards;
+  }
+  .sparkle-1{top:12px;left:50%;animation-delay:0s !important;}
+  .sparkle-2{bottom:14px;left:42%;animation-delay:0.15s !important;}
+  .sparkle-3{top:40%;right:14px;animation-delay:0.3s !important;}
+
+  /* per-card header bg colours */
+  .card-anim-header[data-bg="pink"]{background:linear-gradient(135deg,#FFD6E0 0%,#FFF3A0 100%);}
+  .card-anim-header[data-bg="sky"]{background:linear-gradient(135deg,#D6EEFF 0%,#B5EAD7 100%);}
+  .card-anim-header[data-bg="mint"]{background:linear-gradient(135deg,#D4F5E9 0%,#AED9F7 100%);}
+  .card-anim-header[data-bg="lavender"]{background:linear-gradient(135deg,#E5DEFF 0%,#FFD6E0 100%);}
+  .card-anim-header[data-bg="yellow"]{background:linear-gradient(135deg,#FFF3A0 0%,#D4F5E9 100%);}
+  .card-anim-header[data-bg="peach"]{background:linear-gradient(135deg,#FFE8D6 0%,#FFD6E0 100%);}
+  .card-anim-header[data-bg="coral"]{background:linear-gradient(135deg,#FFD6E0 0%,#E5DEFF 100%);}
+
+  /* ── CARD BODY ── */
+  .program-card-body{padding:22px 24px 26px;}
+  .program-card h3{
+    font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--dark);margin-bottom:10px;
+    transition:color .2s;
+  }
+  .program-card:hover h3{color:var(--pink-dark);}
+  .program-card[data-color="sky"]:hover h3{color:var(--sky-dark);}
+  .program-card[data-color="mint"]:hover h3{color:var(--mint-dark);}
+  .program-card[data-color="lavender"]:hover h3{color:#7B5EA7;}
+  .program-card[data-color="yellow"]:hover h3{color:var(--yellow-dark);}
+  .program-card[data-color="peach"]:hover h3{color:#C4713A;}
+  .program-card p{font-size:0.88rem;color:var(--dark2);font-weight:600;line-height:1.7;}
+
+  /* ── TAGS ── */
+  .program-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .program-tag{
+    padding:4px 12px;border-radius:var(--radius-pill);
+    font-size:0.75rem;font-weight:800;font-family:'Baloo 2',cursive;
+    color:var(--dark);border:1.5px solid;
+    transition:transform .18s, box-shadow .18s;
+    display:inline-block;
+  }
+  .program-tag:hover{transform:scale(1.08) translateY(-2px);box-shadow:0 3px 8px rgba(0,0,0,0.1);}
+
+  /* ── PROGRAMS SECTION ── */
   .programs-section{padding:70px 5vw 80px;background:var(--mint-light);}
   .programs-inner{max-width:1100px;margin:0 auto;}
   .programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:1rem;}
+
+  /* ── GALLERY ── */
+  .gallery-section{padding:80px 5vw;background:var(--white);}
+  .gallery-inner{max-width:1100px;margin:0 auto;}
+  .section-label{font-size:0.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.14em;color:var(--pink-dark);margin-bottom:0.5rem;font-family:'Baloo 2',cursive;}
+  .section-title{font-family:'Fredoka One',cursive;font-size:clamp(1.6rem,3.5vw,2.5rem);line-height:1.15;color:var(--dark);margin-bottom:1.2rem;}
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:2rem;}
+  .gallery-item{border-radius:var(--radius);overflow:hidden;}
+  .gallery-item.tall{grid-row:span 2;}
+  @keyframes shimmer2{to{left:160%}}
+  .img-ph{border:3px dashed rgba(100,80,180,0.3);border-radius:var(--radius);background:linear-gradient(135deg,var(--yellow-light) 0%,var(--mint-light) 50%,var(--pink-light) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .img-ph-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
+  .img-ph-label{font-size:0.8rem;font-weight:800;color:var(--dark2);text-align:center;padding:0 16px;font-family:'Baloo 2',cursive;}
+  .img-ph-sub{font-size:0.72rem;color:var(--gray);font-weight:600;text-align:center;padding:0 16px;}
+  .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.45),transparent);animation:shimmer2 2.8s infinite;}
   .program-card{background:#fff;border-radius:var(--radius);border:2.5px solid var(--pink);box-shadow:0 6px 0 var(--pink-dark);overflow:hidden;transition:transform .2s,box-shadow .2s;}
   .program-card:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 10px 0 var(--pink-dark);}
   .program-card:nth-child(2){border-color:var(--sky);box-shadow:0 6px 0 var(--sky-dark);}
@@ -95,7 +221,7 @@
   .program-card:nth-child(7) .program-tag{background:var(--peach-light);border-color:var(--peach);}
   .program-card:nth-child(8) .program-tag{background:var(--pink-light);border-color:var(--pink);}
 
-  /* CTA strip */
+  /* ── CTA ── */
   .cta-strip{padding:70px 5vw;background:var(--yellow);text-align:center;border-top:4px solid var(--yellow-dark);border-bottom:4px solid var(--yellow-dark);position:relative;}
   .cta-strip::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.3) 2px,transparent 2px);background-size:28px 28px;}
   .cta-strip>*{position:relative;z-index:1;}
@@ -104,6 +230,7 @@
   .btn-coral{background:var(--coral);color:#fff;padding:16px 38px;border-radius:var(--radius-pill);font-family:'Baloo 2',cursive;font-weight:800;font-size:1.05rem;text-decoration:none;display:inline-block;border:2.5px solid var(--coral);box-shadow:0 6px 0 var(--dark);transition:transform .15s;}
   .btn-coral:hover{transform:translateY(-3px);box-shadow:0 9px 0 var(--dark);}
 
+  /* ── WAVES / FOOTER ── */
   .wave-divider{width:100%;overflow:hidden;line-height:0;}
   .wave-divider svg{display:block;width:100%;}
   footer{background:var(--dark);color:rgba(255,255,255,.55);padding:60px 5vw 32px;}
@@ -123,6 +250,10 @@
     .nav-links{display:none;}
     .menu-btn{display:flex;}
     .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+  }
+  @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}}
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}
   }
   @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
 </style>
@@ -167,31 +298,106 @@
 <section class="programs-section">
   <div class="programs-inner">
     <div class="programs-grid">
+
+      <!-- Chemistry -->
+      <div class="program-card" data-delay="0">
+        <div class="card-anim-header" data-bg="pink" style="border-bottom-color:var(--pink);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#FFB3C6,#FFE566);left:30%;top:10%;"></div>
+          <span class="float-a">⚗️</span>
+          <span class="float-b">💧</span>
+          <span class="float-c">🔥</span>
+          <span class="float-d">✨</span>
+          <span class="main-icon">🧪</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--pink);">
           <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9.5V3"/><path d="M7.5 15h9"/></svg></div>
         </div>
         <div class="program-card-body">
-          <div class="program-icon-row">
-          
-          </div>
-          <h3>Biology</h3>
-          <p>Explore living things up close — from cells to ecosystems — through hands-on experiments and observation.</p>
+          <h3>Chemistry Lab</h3>
+          <p>Mix, react, and discover! Students explore chemical reactions, safe lab techniques, and the science behind everyday materials through colorful, hands-on experiments. Activities are leveled so every age group is appropriately challenged.</p>
           <div class="program-tags">
             <span class="program-tag">Ages 6–12</span>
-            <span class="program-tag">Hands-on</span>
+            <span class="program-tag">Experiments</span>
             <span class="program-tag">Free</span>
           </div>
         </div>
       </div>
 
+      <!-- Physics -->
+      <div class="program-card" data-color="sky" data-delay="80">
+        <div class="card-anim-header" data-bg="sky" style="border-bottom-color:var(--sky);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#AED9F7,#B5EAD7);left:20%;top:15%;"></div>
+          <span class="float-a">⚡</span>
+          <span class="float-b">🌊</span>
+          <span class="float-c">🔭</span>
+          <span class="float-d">💡</span>
+          <span class="main-icon" style="animation-delay:0.5s">⚛️</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
+        </div>
+        <div class="program-card-body">
+          <h3>Physics in Motion</h3>
+          <p>Forces, energy, light, and sound — students investigate the laws of the universe through exciting demos, simple machines, and real-world challenges. Activities are leveled so every age group is appropriately challenged.</p>
+          <h3>Biology</h3>
+          <p>Explore living things up close — from cells to ecosystems — through hands-on experiments and observation.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 6–12</span>
+            <span class="program-tag">Demos</span>
+            <span class="program-tag">Free</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Biology -->
+      <div class="program-card" data-color="mint" data-delay="160">
+        <div class="card-anim-header" data-bg="mint" style="border-bottom-color:var(--mint);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#B5EAD7,#AED9F7);left:35%;top:5%;"></div>
+          <span class="float-a">🌿</span>
+          <span class="float-b">🦋</span>
+          <span class="float-c">🌱</span>
+          <span class="float-d">🐛</span>
+          <span class="main-icon" style="animation-delay:1s">🔬</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--sky);">
           <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6.5L4.2 18a2 2 0 0 0 1.8 2.9h12a2 2 0 0 0 1.8-2.9L15 8.5V2"/><path d="M9 2h6"/><path d="M9 14h6"/></svg></div>
         </div>
         <div class="program-card-body">
-          <div class="program-icon-row">
+          <h3>Biology Explorers</h3>
+          <p>Zoom in on life! From cells to ecosystems, students investigate living things through microscopes, specimen observation, and nature-based field activities. Activities are leveled so every age group is appropriately challenged.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 6–12</span>
+            <span class="program-tag">Nature &amp; Lab</span>
+            <span class="program-tag">Free</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Astronomy -->
+      <div class="program-card" data-color="lavender" data-delay="0">
+        <div class="card-anim-header" data-bg="lavender" style="border-bottom-color:var(--lavender);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#C3B1E1,#AED9F7);left:25%;top:8%;"></div>
+          <span class="float-a">🪐</span>
+          <span class="float-b">☄️</span>
+          <span class="float-c">🌙</span>
+          <span class="float-d">🛸</span>
+          <span class="main-icon" style="animation:floatUp 4s ease-in-out infinite;animation-delay:0.3s">🌌</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
+        </div>
+        <div class="program-card-body">
+          <h3>Astronomy &amp; Space</h3>
+          <p>Reach for the stars! Students explore planets, constellations, black holes, and space exploration through stargazing sessions, models, and NASA-inspired activities. Activities are leveled so every age group is appropriately challenged.</p>
+          <div class="program-tags">
+            <span class="program-tag">All Ages</span>
+            <span class="program-tag">Stargazing</span>
           <h3>Chemistry</h3>
           <p>Mix, react, and discover through safe, guided experiments that reveal the science behind everyday materials.</p>
           <div class="program-tags">
@@ -202,78 +408,73 @@
         </div>
       </div>
 
+      <!-- Plant Science -->
+      <div class="program-card" data-color="yellow" data-delay="80">
+        <div class="card-anim-header" data-bg="yellow" style="border-bottom-color:var(--yellow);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#FFE566,#B5EAD7);left:30%;top:12%;"></div>
+          <span class="float-a">🌸</span>
+          <span class="float-b">🍃</span>
+          <span class="float-c">🌻</span>
+          <span class="float-d">💧</span>
+          <span class="main-icon" style="animation-delay:0.7s">🌱</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--yellow);">
           <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg></div>
         </div>
         <div class="program-card-body">
-          <div class="program-icon-row">
-            
-          </div>
-          <h3>Physics</h3>
-          <p>Investigate motion, energy, and forces through playful experiments that make big ideas easy to grasp.</p>
-          <div class="program-tags">
-            <span class="program-tag">Ages 8–14</span>
-            <span class="program-tag">Hands-on</span>
-            <span class="program-tag">Free</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="program-card">
-        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--lavender);">
-          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/><circle cx="18" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg></div>
-        </div>
-        <div class="program-card-body">
-          <div class="program-icon-row">
-           
-          </div>
-          <h3>Astronomy</h3>
-          <p>Look up and wonder — students explore planets, stars, and space through models and stargazing activities.</p>
-          <div class="program-tags">
-            <span class="program-tag">All Ages</span>
-            <span class="program-tag">Stargazing</span>
-            <span class="program-tag">Free</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="program-card">
-        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--mint-dark);">
-          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 5 12 5 6c6 0 7 4 7 6z"/><path d="M12 12c0 0 7 0 7-6-6 0-7 4-7 6z"/></svg></div>
-        </div>
-        <div class="program-card-body">
-          <div class="program-icon-row">
-          
-          </div>
           <h3>Plant Science</h3>
-          <p>Grow, observe, and learn how plants live and thrive through gardening projects and simple botany experiments.</p>
+          <p>Grow, observe, and discover! Students learn about photosynthesis, plant life cycles, and sustainability by planting seeds, conducting growth experiments, and building mini gardens. Activities are leveled so every age group is appropriately challenged.</p>
           <div class="program-tags">
             <span class="program-tag">Ages 6–12</span>
-            <span class="program-tag">Hands-on</span>
+            <span class="program-tag">Grow &amp; Learn</span>
             <span class="program-tag">Free</span>
           </div>
         </div>
       </div>
 
-      <div class="program-card">
-        <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--coral);">
-          <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+      <!-- Health Science -->
+      <div class="program-card" data-color="peach" data-delay="160">
+        <div class="card-anim-header" data-bg="peach" style="border-bottom-color:var(--peach);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#FFCBA4,#FFB3C6);left:28%;top:10%;"></div>
+          <span class="float-a">💊</span>
+          <span class="float-b">🩺</span>
+          <span class="float-c">🫀</span>
+          <span class="float-d">🧬</span>
+          <span class="main-icon" style="animation-delay:0.2s">🫁</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
         </div>
         <div class="program-card-body">
-          <div class="program-icon-row">
-          
-          </div>
           <h3>Health Science</h3>
-          <p>Discover how the human body works and build healthy habits through age-appropriate, hands-on activities.</p>
+          <p>Understand the amazing human body! Students explore anatomy, nutrition, and wellness through interactive models, hands-on activities, and visits from health professionals. Activities are leveled so every age group is appropriately challenged.</p>
           <div class="program-tags">
-            <span class="program-tag">Ages 8–14</span>
-            <span class="program-tag">Hands-on</span>
+            <span class="program-tag">Ages 6–12</span>
+            <span class="program-tag">Body &amp; Wellness</span>
             <span class="program-tag">Free</span>
           </div>
         </div>
       </div>
 
+      <!-- Engineering -->
+      <div class="program-card" data-delay="0">
+        <div class="card-anim-header" data-bg="coral" style="border-bottom-color:var(--pink);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#FFB3C6,#C3B1E1);left:32%;top:8%;"></div>
+          <span class="float-a">⚙️</span>
+          <span class="float-b">🔩</span>
+          <span class="float-c">📐</span>
+          <span class="float-d">🏗️</span>
+          <span class="main-icon" style="animation-delay:0.9s">🤖</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
+        </div>
+        <div class="program-card-body">
+          <h3>Engineering Challenges</h3>
+          <p>Design, build, test, and solve real-world problems through creative teamwork and innovative thinking. Activities are leveled so every age group is appropriately challenged.</p>
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--peach);">
           <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
@@ -292,6 +493,22 @@
         </div>
       </div>
 
+      <!-- Math -->
+      <div class="program-card" data-color="sky" data-delay="80">
+        <div class="card-anim-header" data-bg="sky" style="border-bottom-color:var(--sky);">
+          <div class="bg-blob" style="background:radial-gradient(circle,#AED9F7,#FFF3A0);left:25%;top:15%;"></div>
+          <span class="float-a">➕</span>
+          <span class="float-b">🎲</span>
+          <span class="float-c">🔢</span>
+          <span class="float-d">📊</span>
+          <span class="main-icon" style="animation-delay:1.2s">🧮</span>
+          <span class="sparkle sparkle-1">⭐</span>
+          <span class="sparkle sparkle-2">💫</span>
+          <span class="sparkle sparkle-3">✨</span>
+        </div>
+        <div class="program-card-body">
+          <h3>Math in Action</h3>
+          <p>Apply math in exciting and practical ways through games, puzzles, and real-world activities. Activities are leveled so every age group is appropriately challenged.</p>
       <div class="program-card">
         <div class="program-card-img img-ph" style="border-radius:0;border:none;border-bottom:2.5px solid var(--pink);">
           <div class="img-ph-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h6M6 3v6"/><path d="M15 6h6"/><path d="M3 15l6 6M9 15l-6 6"/><path d="M15 18h6"/><circle cx="18" cy="14.5" r="0.9" fill="#7B7A99" stroke="none"/><circle cx="18" cy="21.5" r="0.9" fill="#7B7A99" stroke="none"/></svg></div>
@@ -309,11 +526,48 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <div class="wave-divider" style="background:var(--mint-light);">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#FFFDF7"/>
+  </svg>
+</div>
+
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <div class="section-label">In Action</div>
+    <h2 class="section-title">Program Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item tall img-ph" style="min-height:300px;">
+        <div class="img-ph-icon">📷</div>
+        <div class="img-ph-label">Gallery Photo 1</div>
+        <div class="img-ph-sub">Tall feature image</div>
+      </div>
+      <div class="gallery-item img-ph" style="min-height:140px;">
+        <div class="img-ph-icon">📷</div>
+        <div class="img-ph-label">Gallery Photo 2</div>
+      </div>
+      <div class="gallery-item img-ph" style="min-height:140px;">
+        <div class="img-ph-icon">📷</div>
+        <div class="img-ph-label">Gallery Photo 3</div>
+      </div>
+      <div class="gallery-item img-ph" style="min-height:140px;">
+        <div class="img-ph-icon">📷</div>
+        <div class="img-ph-label">Gallery Photo 4</div>
+      </div>
+      <div class="gallery-item img-ph" style="min-height:140px;">
+        <div class="img-ph-icon">📷</div>
+        <div class="img-ph-label">Gallery Photo 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--white);">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#FFE566"/>
   </svg>
@@ -342,6 +596,7 @@
         <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
       </div>
       <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Chemistry Lab</a></li><li><a href="program.html">Physics in Motion</a></li><li><a href="program.html">Biology Explorers</a></li><li><a href="program.html">Astronomy &amp; Space</a></li><li><a href="program.html">Plant Science</a></li><li><a href="program.html">Health Science</a></li></ul></div>
       <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Biology &amp; Chemistry</a></li><li><a href="program.html">Physics &amp; Astronomy</a></li><li><a href="program.html">Plant &amp; Health Science</a></li><li><a href="program.html">Math &amp; Engineering</a></li></ul></div>
       <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
     </div>
@@ -352,14 +607,11 @@
 <script>
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
-
   menuBtn.addEventListener('click', () => {
     const isOpen = mobileMenu.classList.toggle('open');
     menuBtn.classList.toggle('open', isOpen);
     menuBtn.setAttribute('aria-expanded', isOpen);
   });
-
-  // Close menu when a link inside it is clicked
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
@@ -367,6 +619,20 @@
       menuBtn.setAttribute('aria-expanded', 'false');
     });
   });
+
+  // Staggered scroll-reveal for cards
+  const cards = document.querySelectorAll('.program-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const delay = parseInt(card.dataset.delay || 0);
+        setTimeout(() => card.classList.add('visible'), delay);
+        observer.unobserve(card);
+      }
+    });
+  }, { threshold: 0.12 });
+  cards.forEach(card => observer.observe(card));
 </script>
 </body>
 </html>
