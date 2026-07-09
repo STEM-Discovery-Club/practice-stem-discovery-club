@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -21,6 +20,7 @@
   .nav-links a.active{color:var(--pink-dark);border-bottom:2.5px solid var(--pink-dark);padding-bottom:2px;}
   .nav-links .btn-donate{background:var(--pink);color:var(--dark);padding:9px 22px;border-radius:var(--radius-pill);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);transition:transform .15s;}
   .nav-links .btn-donate:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--pink-dark);background:var(--yellow);border-color:var(--yellow-dark);}
+
   .menu-btn{display:none;width:46px;height:46px;border-radius:14px;background:var(--pink-light);border:2.5px solid var(--pink-dark);box-shadow:0 4px 0 var(--pink-dark);align-items:center;justify-content:center;cursor:pointer;transition:transform .15s,box-shadow .15s,background .2s;flex-shrink:0;}
   .menu-btn:hover{background:var(--yellow);border-color:var(--yellow-dark);box-shadow:0 4px 0 var(--yellow-dark);}
   .menu-btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--yellow-dark);}
@@ -28,6 +28,7 @@
   .menu-btn .icon-close{display:none;}
   .menu-btn.open .icon-burger{display:none;}
   .menu-btn.open .icon-close{display:block;}
+
   .mobile-menu{position:fixed;top:68px;left:0;right:0;z-index:99;background:var(--white);border-bottom:3px solid var(--pink-light);box-shadow:0 12px 24px rgba(45,42,69,0.12);max-height:0;overflow:hidden;transition:max-height .3s ease;}
   .mobile-menu.open{max-height:420px;}
   .mobile-menu ul{list-style:none;display:flex;flex-direction:column;padding:1rem 5vw 1.5rem;gap:0.9rem;}
@@ -168,6 +169,54 @@
   .programs-inner{max-width:1100px;margin:0 auto;}
   .programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:1rem;}
 
+  /* Card base */
+  .program-card{background:#fff;border-radius:var(--radius);border:2.5px solid var(--pink);box-shadow:0 6px 0 var(--pink-dark);overflow:hidden;transition:transform .2s,box-shadow .2s;}
+  .program-card:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 10px 0 var(--pink-dark);}
+
+  /* Per-card color theming via data-color attribute */
+  .program-card[data-color="sky"]{border-color:var(--sky);box-shadow:0 6px 0 var(--sky-dark);}
+  .program-card[data-color="sky"]:hover{box-shadow:0 10px 0 var(--sky-dark);}
+  .program-card[data-color="sky"] .program-card-img{border-bottom-color:var(--sky);}
+  .program-card[data-color="sky"] .program-icon{background:var(--sky-light);border-color:var(--sky);}
+  .program-card[data-color="sky"] .program-tag{background:var(--sky-light);border-color:var(--sky);}
+
+  .program-card[data-color="yellow"]{border-color:var(--yellow);box-shadow:0 6px 0 var(--yellow-dark);}
+  .program-card[data-color="yellow"]:hover{box-shadow:0 10px 0 var(--yellow-dark);}
+  .program-card[data-color="yellow"] .program-card-img{border-bottom-color:var(--yellow);}
+  .program-card[data-color="yellow"] .program-icon{background:var(--yellow-light);border-color:var(--yellow);}
+  .program-card[data-color="yellow"] .program-tag{background:var(--yellow-light);border-color:var(--yellow);}
+
+  .program-card[data-color="lavender"]{border-color:var(--lavender);box-shadow:0 6px 0 #9980CC;}
+  .program-card[data-color="lavender"]:hover{box-shadow:0 10px 0 #9980CC;}
+  .program-card[data-color="lavender"] .program-card-img{border-bottom-color:var(--lavender);}
+  .program-card[data-color="lavender"] .program-icon{background:var(--lavender-light);border-color:var(--lavender);}
+  .program-card[data-color="lavender"] .program-tag{background:var(--lavender-light);border-color:var(--lavender);}
+
+  .program-card[data-color="mint"]{border-color:var(--mint);box-shadow:0 6px 0 var(--mint-dark);}
+  .program-card[data-color="mint"]:hover{box-shadow:0 10px 0 var(--mint-dark);}
+  .program-card[data-color="mint"] .program-card-img{border-bottom-color:var(--mint);}
+  .program-card[data-color="mint"] .program-icon{background:var(--mint-light);border-color:var(--mint);}
+  .program-card[data-color="mint"] .program-tag{background:var(--mint-light);border-color:var(--mint);}
+
+  .program-card[data-color="peach"]{border-color:var(--peach);box-shadow:0 6px 0 #D4845A;}
+  .program-card[data-color="peach"]:hover{box-shadow:0 10px 0 #D4845A;}
+  .program-card[data-color="peach"] .program-card-img{border-bottom-color:var(--peach);}
+  .program-card[data-color="peach"] .program-icon{background:var(--peach-light);border-color:var(--peach);}
+  .program-card[data-color="peach"] .program-tag{background:var(--peach-light);border-color:var(--peach);}
+
+  /* Default (pink) card colors */
+  .program-card .program-card-img{border-bottom-color:var(--pink);}
+  .program-card .program-icon{background:var(--pink-light);border-color:var(--pink);}
+  .program-card .program-tag{background:var(--pink-light);border-color:var(--pink);}
+
+  .program-card-img{height:160px;border-radius:0;border:none;border-bottom:2.5px solid;}
+  .program-card-body{padding:24px 26px 28px;}
+  .program-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .program-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid;}
+  .program-card h3{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--dark);margin-bottom:10px;}
+  .program-card p{font-size:0.9rem;color:var(--dark2);font-weight:600;line-height:1.7;}
+  .program-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .program-tag{padding:4px 12px;border-radius:var(--radius-pill);font-size:0.75rem;font-weight:800;font-family:'Baloo 2',cursive;color:var(--dark);border:1.5px solid;}
   /* ── GALLERY ── */
   .gallery-section{padding:80px 5vw;background:var(--white);}
   .gallery-inner{max-width:1100px;margin:0 auto;}
@@ -300,6 +349,10 @@
     <div class="programs-grid">
 
       <!-- Chemistry -->
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--pink);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Chemistry Program Photo</div>
       <div class="program-card" data-delay="0">
         <div class="card-anim-header" data-bg="pink" style="border-bottom-color:var(--pink);">
           <div class="bg-blob" style="background:radial-gradient(circle,#FFB3C6,#FFE566);left:30%;top:10%;"></div>
@@ -327,6 +380,10 @@
       </div>
 
       <!-- Physics -->
+      <div class="program-card" data-color="sky">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--sky);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Physics Program Photo</div>
       <div class="program-card" data-color="sky" data-delay="80">
         <div class="card-anim-header" data-bg="sky" style="border-bottom-color:var(--sky);">
           <div class="bg-blob" style="background:radial-gradient(circle,#AED9F7,#B5EAD7);left:20%;top:15%;"></div>
@@ -353,6 +410,10 @@
       </div>
 
       <!-- Biology -->
+      <div class="program-card" data-color="mint">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--mint);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Biology Program Photo</div>
       <div class="program-card" data-color="mint" data-delay="160">
         <div class="card-anim-header" data-bg="mint" style="border-bottom-color:var(--mint);">
           <div class="bg-blob" style="background:radial-gradient(circle,#B5EAD7,#AED9F7);left:35%;top:5%;"></div>
@@ -380,6 +441,10 @@
       </div>
 
       <!-- Astronomy -->
+      <div class="program-card" data-color="lavender">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--lavender);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Astronomy Program Photo</div>
       <div class="program-card" data-color="lavender" data-delay="0">
         <div class="card-anim-header" data-bg="lavender" style="border-bottom-color:var(--lavender);">
           <div class="bg-blob" style="background:radial-gradient(circle,#C3B1E1,#AED9F7);left:25%;top:8%;"></div>
@@ -398,6 +463,40 @@
           <div class="program-tags">
             <span class="program-tag">All Ages</span>
             <span class="program-tag">Stargazing</span>
+            <span class="program-tag">Free</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plant Science -->
+      <div class="program-card" data-color="yellow">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--yellow);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Plant Science Program Photo</div>
+        </div>
+        <div class="program-card-body">
+          <h3>Plant Science</h3>
+          <p>Grow, observe, and discover! Students learn about photosynthesis, plant life cycles, and sustainability by planting seeds, conducting growth experiments, and building mini gardens. Activities are leveled so every age group is appropriately challenged.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 6–12</span>
+            <span class="program-tag">Grow &amp; Learn</span>
+            <span class="program-tag">Free</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health Science -->
+      <div class="program-card" data-color="peach">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--peach);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Health Science Program Photo</div>
+        </div>
+        <div class="program-card-body">
+          <h3>Health Science</h3>
+          <p>Understand the amazing human body! Students explore anatomy, nutrition, and wellness through interactive models, hands-on activities, and visits from health professionals. Activities are leveled so every age group is appropriately challenged.</p>
+          <div class="program-tags">
+            <span class="program-tag">Ages 6–12</span>
+            <span class="program-tag">Body &amp; Wellness</span>
           <h3>Chemistry</h3>
           <p>Mix, react, and discover through safe, guided experiments that reveal the science behind everyday materials.</p>
           <div class="program-tags">
@@ -408,6 +507,15 @@
         </div>
       </div>
 
+      <!-- Engineering Challenges -->
+      <div class="program-card">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--pink);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Engineering Program Photo</div>
+        </div>
+        <div class="program-card-body">
+          <h3>Engineering Challenges</h3>
+          <p>Design, build, test, and solve real-world problems through creative teamwork and innovative thinking. Activities are leveled so every age group is appropriately challenged.</p>
       <!-- Plant Science -->
       <div class="program-card" data-color="yellow" data-delay="80">
         <div class="card-anim-header" data-bg="yellow" style="border-bottom-color:var(--yellow);">
@@ -493,6 +601,15 @@
         </div>
       </div>
 
+      <!-- Math in Action -->
+      <div class="program-card" data-color="sky">
+        <div class="program-card-img img-ph" style="border-bottom:2.5px solid var(--sky);">
+          <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <div class="img-ph-label">Math Program Photo</div>
+        </div>
+        <div class="program-card-body">
+          <h3>Math in Action</h3>
+          <p>Apply math in exciting and practical ways through games, puzzles, and real-world activities. Activities are leveled so every age group is appropriately challenged.</p>
       <!-- Math -->
       <div class="program-card" data-color="sky" data-delay="80">
         <div class="card-anim-header" data-bg="sky" style="border-bottom-color:var(--sky);">
@@ -612,6 +729,7 @@
     menuBtn.classList.toggle('open', isOpen);
     menuBtn.setAttribute('aria-expanded', isOpen);
   });
+
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
