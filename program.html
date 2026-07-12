@@ -14,7 +14,7 @@
   /* ── NAV ── */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,253,247,0.97);backdrop-filter:blur(14px);border-bottom:3px solid var(--pink-light);padding:0 5vw;display:flex;align-items:center;justify-content:space-between;height:68px;}
   .nav-logo{font-family:'Fredoka One',cursive;font-size:1.25rem;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:12px;}
-  .logo-bubble{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--yellow) 0%,var(--pink) 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 var(--yellow-dark);}
+  .nav-logo-img{height:46px;width:auto;object-fit:contain;}
   .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center;}
   .nav-links a{text-decoration:none;color:var(--dark2);font-size:0.92rem;font-weight:800;font-family:'Baloo 2',cursive;transition:color .2s;}
   .nav-links a:hover{color:var(--pink-dark);}
@@ -180,7 +180,7 @@
 <body>
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+    <img src="logo-icon.png" alt="STEM Discovery Club Logo" class="nav-logo-img">
     STEM Discovery Club
   </a>
   <ul class="nav-links">
@@ -222,7 +222,6 @@
   <div class="programs-inner">
     <div class="programs-grid">
 
-      <!-- Chemistry -->
       <div class="program-card" data-delay="0">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -240,7 +239,6 @@
         </div>
       </div>
 
-      <!-- Physics -->
       <div class="program-card" data-color="sky" data-delay="80">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -258,7 +256,6 @@
         </div>
       </div>
 
-      <!-- Biology -->
       <div class="program-card" data-color="mint" data-delay="160">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -276,7 +273,6 @@
         </div>
       </div>
 
-      <!-- Astronomy -->
       <div class="program-card" data-color="lavender" data-delay="0">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -294,7 +290,6 @@
         </div>
       </div>
 
-      <!-- Plant Science -->
       <div class="program-card" data-color="yellow" data-delay="80">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -312,7 +307,6 @@
         </div>
       </div>
 
-      <!-- Health Science -->
       <div class="program-card" data-color="peach" data-delay="160">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -330,7 +324,6 @@
         </div>
       </div>
 
-      <!-- Engineering -->
       <div class="program-card" data-delay="0">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -348,7 +341,6 @@
         </div>
       </div>
 
-      <!-- Math -->
       <div class="program-card" data-color="sky" data-delay="80">
         <div class="program-card-body">
           <div class="program-icon-row">
@@ -393,7 +385,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <a href="index.html" class="footer-nav-logo">
-          <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+          <img src="logo-icon.png" alt="STEM Discovery Club Logo" class="nav-logo-img">
           STEM Discovery Club
         </a>
         <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
