@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -255,22 +257,23 @@
   .programs-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
   .programs-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; flex-wrap: wrap; gap: 1rem; }
   .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-  .program-card { background: #fff; border-radius: var(--radius); padding: 0; border: 2.5px solid var(--pink); box-shadow: 0 6px 0 var(--pink-dark); transition: transform .2s, box-shadow .2s; overflow: hidden; }
+  .program-card { background: #fff; border-radius: var(--radius); padding: 0; border: 2.5px solid var(--pink); box-shadow: 0 6px 0 var(--pink-dark); transition: transform .2s, box-shadow .2s; overflow: hidden; position: relative; }
+  .program-badge { position: absolute; top: 14px; left: 14px; z-index: 2; background: #fff; color: var(--dark); padding: 6px 14px; border-radius: var(--radius-pill); font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 0.72rem; text-transform: uppercase; letter-spacing: .06em; border: 2px solid var(--pink-dark); box-shadow: 0 3px 0 var(--pink-dark); }
+  .program-card:nth-child(2) .program-badge { border-color: var(--yellow-dark); box-shadow: 0 3px 0 var(--yellow-dark); }
+  .program-card:nth-child(3) .program-badge { border-color: #9980CC; box-shadow: 0 3px 0 #9980CC; }
   .program-card:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: 0 10px 0 var(--pink-dark); }
-  .program-card:nth-child(2) { border-color: var(--sky); box-shadow: 0 6px 0 var(--sky-dark); }
-  .program-card:nth-child(2):hover { box-shadow: 0 10px 0 var(--sky-dark); }
-  .program-card:nth-child(3) { border-color: var(--yellow); box-shadow: 0 6px 0 var(--yellow-dark); }
-  .program-card:nth-child(3):hover { box-shadow: 0 10px 0 var(--yellow-dark); }
-  .program-card:nth-child(4) { border-color: var(--lavender); box-shadow: 0 6px 0 #9980CC; }
-  .program-card:nth-child(4):hover { box-shadow: 0 10px 0 #9980CC; }
+  .program-card:nth-child(2) { border-color: var(--yellow); box-shadow: 0 6px 0 var(--yellow-dark); }
+  .program-card:nth-child(2):hover { box-shadow: 0 10px 0 var(--yellow-dark); }
+  .program-card:nth-child(3) { border-color: var(--lavender); box-shadow: 0 6px 0 #9980CC; }
+  .program-card:nth-child(3):hover { box-shadow: 0 10px 0 #9980CC; }
   .program-card-body { padding: 24px 26px 28px; }
   .program-icon-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
   .program-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; background: var(--pink-light); border: 2px solid var(--pink); }
-  .program-card:nth-child(2) .program-icon { background: var(--sky-light); border-color: var(--sky); }
-  .program-card:nth-child(3) .program-icon { background: var(--yellow-light); border-color: var(--yellow); }
-  .program-card:nth-child(4) .program-icon { background: var(--lavender-light); border-color: var(--lavender); }
+  .program-card:nth-child(2) .program-icon { background: var(--yellow-light); border-color: var(--yellow); }
+  .program-card:nth-child(3) .program-icon { background: var(--lavender-light); border-color: var(--lavender); }
   .program-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.15rem; color: var(--dark); margin-bottom: 8px; }
   .program-card p { font-size: 0.88rem; color: var(--dark2); font-weight: 600; }
+  .program-card-img { width: 100%; height: 130px; object-fit: cover; object-position: center; display: block; }
 
   /* ===== EVENTS ===== */
   .events { background: var(--dark); position: relative; overflow: hidden; }
@@ -301,4 +304,385 @@
 
   /* ===== DONATE STRIP ===== */
   .donate-strip { background: var(--yellow); color: var(--dark); padding: 90px 5vw; text-align: center; position: relative; overflow: hidden; border-top: 4px solid var(--yellow-dark); border-bottom: 4px solid var(--yellow-dark); }
+  .donate-strip::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.3) 2px, transparent 2px); background-size: 28px 28px; }
+  .donate-strip > * { position: relative; z-index: 1; }
+  .donate-strip h2 { font-family: 'Fredoka One', cursive; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+  .donate-strip p { font-size: 1.1rem; color: var(--dark2); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; font-weight: 700; }
+  .btn-coral { background: var(--coral); color: #fff; padding: 16px 38px; border-radius: var(--radius-pill); font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 1.05rem; text-decoration: none; display: inline-block; border: 2.5px solid var(--coral); box-shadow: 0 6px 0 var(--dark); transition: transform .15s, box-shadow .15s; }
+  .btn-coral:hover { transform: translateY(-3px); box-shadow: 0 9px 0 var(--dark); }
 
+  /* ===== CONTACT ===== */
+  .contact { background: var(--lavender-light); position: relative; }
+  .contact::before { content: ''; position: absolute; inset: 0; z-index: 0; background-image: radial-gradient(circle, rgba(150,120,220,0.1) 2px, transparent 2px); background-size: 30px 30px; }
+  .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 1; }
+  .contact-info { display: flex; flex-direction: column; gap: 20px; margin-top: 2rem; }
+  .contact-item { display: flex; gap: 14px; align-items: flex-start; }
+  .contact-item-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; border: 2px solid var(--yellow-dark); }
+  .contact-item-text strong { display: block; font-size: 0.92rem; font-weight: 800; color: var(--dark); margin-bottom: 2px; font-family: 'Baloo 2', cursive; }
+  .contact-item-text span { font-size: 0.88rem; color: var(--dark2); font-weight: 600; }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; font-family: 'Baloo 2', cursive; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 13px 18px; border: 2.5px solid var(--lavender); border-radius: var(--radius-sm); font-family: 'Nunito', sans-serif; font-size: 0.95rem; color: var(--dark); background: #fff; outline: none; transition: border-color .2s, box-shadow .2s; font-weight: 600; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--pink-dark); box-shadow: 0 0 0 3px var(--pink-light); }
+  .form-group textarea { min-height: 130px; resize: vertical; }
+  .btn-submit { background: var(--pink); color: var(--dark); padding: 14px 32px; border-radius: var(--radius-pill); font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 1rem; border: 2.5px solid var(--pink-dark); box-shadow: 0 5px 0 var(--pink-dark); transition: transform .15s, box-shadow .15s; cursor: pointer; }
+  .btn-submit:hover { transform: translateY(-3px); background: var(--mint); border-color: var(--mint-dark); box-shadow: 0 8px 0 var(--mint-dark); }
+  .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .form-status { font-size: 0.88rem; font-weight: 700; font-family: 'Baloo 2', cursive; padding: 12px 18px; border-radius: var(--radius-sm); display: none; }
+  .form-status.success { display: block; background: var(--mint-light); color: var(--dark); border: 2px solid var(--mint-dark); }
+  .form-status.error { display: block; background: var(--peach-light); color: var(--dark); border: 2px solid var(--coral); }
+
+  /* ===== FOOTER ===== */
+  footer { background: var(--dark); color: rgba(255,255,255,.55); padding: 60px 5vw 32px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand p { font-size: 0.88rem; margin-top: 14px; line-height: 1.75; max-width: 280px; font-weight: 600; }
+  .footer-col h4 { font-family: 'Fredoka One', cursive; font-size: 0.95rem; color: var(--yellow); margin-bottom: 18px; letter-spacing: 0.03em; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { text-decoration: none; color: rgba(255,255,255,.5); font-size: 0.88rem; font-weight: 600; transition: color .2s; }
+  .footer-col ul a:hover { color: var(--pink); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px; font-size: 0.83rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-weight: 600; }
+  .footer-bottom a { color: rgba(255,255,255,.35); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--yellow); }
+  .footer-nav-logo { font-family: 'Fredoka One', cursive; font-size: 1.1rem; color: var(--yellow); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width: 768px) {
+  .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .about-visual { grid-template-columns: 1fr 1fr; }
+  .event-card { flex-direction: column; gap: 16px; }
+  .programs-header { flex-direction: column; align-items: flex-start; }
+  }
+  @media(max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+  .about-visual { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.5rem; }
+  .stat { padding: 14px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-bubble">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+    </div>
+    STEM Discovery Club
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="program.html">Programs</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="volunteer.html">Volunteer</a></li>
+    <li><a href="donate.html" class="btn-donate">Donate</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="active"> Home</a>
+  <a href="about.html"> About</a>
+  <a href="program.html"> Programs</a>
+  <a href="events.html"> Events</a>
+  <a href="contact.html"> Contact</a>
+  <a href="volunteer.html"> Volunteer</a>
+  <a href="donate.html" class="btn-donate-mobile">💛 Donate</a>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-img-float f1 img-ph">
+    <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+    <div class="img-ph-label">Team Photo</div>
+    <div class="img-ph-sub">Replace with group photo</div>
+  </div>
+  <div class="hero-img-float f2 img-ph">
+    <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+    <div class="img-ph-label">Activity Photo</div>
+    <div class="img-ph-sub">Students at work</div>
+  </div>
+  <div class="hero-img-float f3 img-ph">
+    <div class="img-ph-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B7A99" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+    <div class="img-ph-label">Event Photo</div>
+    <div class="img-ph-sub">Session highlights</div>
+  </div>
+
+  <div class="hero-badge">✨ Youth-Led · San Antonio, TX</div>
+  <h1>Inspiring Young Minds<br/>Through <em>STEM</em> <span class="sky-word">Discovery!</span></h1>
+  <p>A student-run initiative sparking curiosity, building skills, and creating real-world impact through hands-on STEM experiences.</p>
+  <div class="hero-btns">
+    <a href="program.html" class="btn-primary">Explore Programs</a>
+    <a href="contact.html" class="btn-outline">Get Involved</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Student Leaders</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">STEM Topics</div></div>
+    <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Upcoming Events</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Hands-on Fun</div></div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--sky-light);">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#FFFDF7"/>
+  </svg>
+</div>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="section-label">Our Mission</div>
+      <h2 class="section-title">Building the Future,<br/>Together!</h2>
+      <p class="section-desc">We are a group of high schoolers who want to make an impact in our community by helping young students who are interested in the STEM field to explore the different branches of science and expand their knowledge through hands-on, learning experiences.</p>
+    </div>
+    <div class="about-card sky-card">
+      <div class="about-card-title">Why?</div>
+      <p>Have you ever noticed that kids that are "geniuses" are usually children who were exposed to these programs early on? Nationwide about 6-7% of students are considered "gifted," not because they were born with it, but because they were surrounded by things that helped them develop a more advanced way of thinking. We can increase this percentage of "gifted" kids together by hosting small, fun activities that allow us to help kids become more exposed to a competitive but amazing field.<br/><br/>However, we can't achieve this alone. We need your help, as a community. As students who have always wanted to be "geniuses" but weren't exposed to many opportunities as children, we now want to help the next generation get ahead and achieve their dreams.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--white);">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#D4F5E9"/>
+  </svg>
+</div>
+
+<section class="programs" id="programs">
+  <div class="programs-inner">
+    <div class="programs-header">
+      <div>
+        <div class="section-label">Program Highlights</div>
+        <h2 class="section-title">Hands-On. Minds-On.<br/>Future-Ready!</h2>
+      </div>
+      <a href="contact.html" class="btn-outline" style="background:#fff;">Sign Up →</a>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-badge">✨ Highlight</div>
+        <img src="miffyscience.jpeg" alt="Science Explorations" class="program-card-img"/>
+        <div class="program-card-body">
+          <h3>Science Explorations</h3>
+          <p>Discover the wonders of science through fun experiments and guided activities that make learning come alive.</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-badge">✨ Highlight</div>
+        <img src="miffyengineering.jpeg" alt="Engineering Challenges" class="program-card-img"/>
+        <div class="program-card-body">
+          <h3>Engineering Challenges</h3>
+          <p>Design, build, test, and solve real-world problems through creative teamwork and innovative thinking.</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-badge">✨ Highlight</div>
+        <img src="miffymath.jpeg" alt="Math in Action" class="program-card-img"/>
+        <div class="program-card-body">
+          <h3>Math in Action</h3>
+          <p>Apply math in exciting and practical ways through games, puzzles, and real-world activities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--mint-light);">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#2D2A45"/>
+  </svg>
+</div>
+
+<section class="events" id="events">
+  <div class="events-inner">
+    <div class="events-header">
+      <div class="section-label">Upcoming Sessions</div>
+      <h2 class="section-title">Join Us at Our<br/>Next Session!</h2>
+      <p class="section-desc" style="margin-top:.75rem;">Mark your calendar and be part of something amazing. All sessions are open to students and families.</p>
+    </div>
+    <div class="events-list">
+      <div class="event-card">
+        <div class="event-date"><div class="month">Aug</div><div class="day">15</div></div>
+        <div class="event-info"><h3>Bake Sale</h3><p>Location: TBD — stop by to support the club and grab a sweet treat!</p></div>
+        <div class="event-chip">Fundraiser</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--dark);">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#FFE566"/>
+  </svg>
+</div>
+
+<div class="donate-strip">
+  <h2>Be Part of Something Bigger!</h2>
+  <p>Your support helps us inspire more students and create more opportunities in our community. Every little bit counts!</p>
+  <a href="donate.html" class="btn-coral">Donate Today!</a>
+</div>
+
+<div class="wave-divider" style="background:var(--yellow);">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#E5DEFF"/>
+  </svg>
+</div>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Let's Connect!</h2>
+      <p class="section-desc">Whether you're a student, parent, volunteer, or partner — we'd love to hear from you!</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="contact-item-text">
+            <strong>Location</strong>
+            <span>San Antonio, Texas</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <span>info@stemdiscoveryclub.org</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="contact-item-text">
+            <strong>Session Hours</strong>
+            <span>After school &amp; selected weekends</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" id="signupForm">
+        <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="Full name" required/></div>
+        <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="you@example.com" required/></div>
+        <div class="form-group">
+          <label>What's this about?</label>
+          <select name="topic">
+            <option>General Inquiry</option>
+            <option>Session Sign Up</option>
+            <option>Volunteer</option>
+            <option>Partnership</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Your Message</label><textarea name="message" placeholder="Tell us about yourself or how you'd like to get involved..."></textarea></div>
+        <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+        <div class="form-status" id="formStatus"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--lavender-light);">
+  <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#2D2A45"/>
+  </svg>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-nav-logo">
+          <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+          STEM Discovery Club
+        </a>
+        <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="program.html">Programs</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li><li><a href="volunteer.html">Volunteer</a></li></ul></div>
+      <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Science Explorations</a></li><li><a href="program.html">Engineering Challenges</a></li><li><a href="program.html">Math in Action</a></li></ul></div>
+      <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span>
+      <a href="donate.html">Donate →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  // Close menu when a link is clicked
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ===== Google Sheet Sign-Up Form Submission =====
+  // IMPORTANT: Replace this with your deployed Google Apps Script Web App URL.
+  // It must look like: https://script.google.com/macros/s/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/exec
+  // (Deploy your Apps Script as a "Web app" with access set to "Anyone", then paste that /exec URL below.)
+  const GOOGLE_SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx67Qbylgm1rqvEtSvDRxQBJCtgt5SGSTAwg-DD2ba7atlxpuiqhRI3DM5Qe3SXAvejPQ/exec";
+
+  const signupForm = document.getElementById('signupForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const formStatus = document.getElementById('formStatus');
+
+  signupForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = signupForm.querySelector('[name="name"]').value.trim();
+    const email = signupForm.querySelector('[name="email"]').value.trim();
+    // The "What's this about?" dropdown is the purpose; the Apps Script reads it as `subject`.
+    const subject = signupForm.querySelector('[name="topic"]').value;
+    const message = signupForm.querySelector('[name="message"]').value.trim();
+
+    if (!name || !email) {
+      showStatus('Please fill in your name and email.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    formStatus.style.display = 'none';
+
+    fetch(GOOGLE_SHEET_SCRIPT_URL, {
+      method: 'POST',
+      // 'text/plain' avoids a CORS preflight; Apps Script still parses the JSON body fine.
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ name, email, subject, message })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.result === 'success') {
+          showStatus("Thanks! Your message has been sent. We'll be in touch soon!", 'success');
+          signupForm.reset();
+        } else {
+          showStatus('Something went wrong. Please try again or email us directly.', 'error');
+        }
+      })
+      .catch(() => {
+        showStatus('Something went wrong. Please try again or email us directly.', 'error');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      });
+  });
+
+  function showStatus(text, type) {
+    formStatus.textContent = text;
+    formStatus.className = 'form-status ' + type;
+    formStatus.style.display = 'block';
+  }
+</script>
+</body>
+</html>
