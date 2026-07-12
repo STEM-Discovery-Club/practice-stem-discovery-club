@@ -60,15 +60,10 @@
   display: flex; align-items: center; gap: 12px;
   letter-spacing: 0.02em;
   }
-  .logo-bubble {
-  width: 42px; height: 42px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, var(--yellow) 0%, var(--pink) 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 4px 0 var(--yellow-dark);
-  border: 2px dashed rgba(255,255,255,0.6);
-  position: relative;
+  .nav-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
   flex-shrink: 0;
   }
   .nav-links { display: flex; gap: 1.8rem; list-style: none; align-items: center; }
@@ -78,6 +73,7 @@
   transition: color .2s; letter-spacing: 0.01em;
   }
   .nav-links a:hover { color: var(--pink-dark); }
+  .nav-links a.active { color: var(--pink-dark); border-bottom: 2.5px solid var(--pink-dark); padding-bottom: 2px; }
   .nav-links .btn-donate {
   background: var(--pink); color: var(--dark);
   padding: 9px 22px; border-radius: var(--radius-pill); font-weight: 800;
@@ -92,7 +88,7 @@
   border-color: var(--yellow-dark);
   }
 
-  /* Mobile menu button (hidden on desktop) */
+  /* Mobile menu button */
   .menu-btn {
   display: none; width: 46px; height: 46px; border-radius: 14px;
   background: var(--pink-light); border: 2.5px solid var(--pink-dark);
@@ -122,7 +118,7 @@
   text-decoration: none; color: var(--dark2); font-size: 1rem; font-weight: 800;
   font-family: 'Baloo 2', cursive; display: block; padding: 8px 0;
   }
-  .mobile-menu ul a.active { color: var(--pink-dark); }
+  .mobile-menu ul a.active { color: var(--pink-dark); background: var(--pink-light); padding: 8px 14px; border-radius: var(--radius-sm); }
   .mobile-menu ul a.btn-donate {
   background: var(--pink); color: var(--dark);
   padding: 11px 22px; border-radius: var(--radius-pill);
@@ -130,7 +126,6 @@
   text-align: center; width: fit-content;
   }
 
- 
   /* ===== HERO ===== */
   .hero {
   min-height: 60vh;
@@ -154,7 +149,6 @@
   text-transform: uppercase; letter-spacing: .1em;
   margin-bottom: 1.8rem; font-family: 'Baloo 2', cursive;
   box-shadow: 0 4px 0 var(--yellow-dark);
-
   position: relative; z-index: 1;
   }
   .hero h1 {
@@ -183,7 +177,7 @@
   transition: transform .15s, box-shadow .15s;
   letter-spacing: 0.02em;
   }
-  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 0 var(--mint-dark); background: var(--yellow); border-color: var(--yellow-dark); box-shadow: 0 8px 0 var(--yellow-dark); }
+  .btn-primary:hover { transform: translateY(-3px); background: var(--yellow); border-color: var(--yellow-dark); box-shadow: 0 8px 0 var(--yellow-dark); }
   .btn-outline {
   background: #fff; color: var(--dark);
   padding: 14px 32px; border-radius: var(--radius-pill);
@@ -209,7 +203,7 @@
   }
   .section-desc { font-size: 1rem; color: var(--dark2); max-width: 620px; font-weight: 700; }
 
-  /* wavy section dividers */
+  /* Wavy section dividers */
   .wave-divider { width: 100%; overflow: hidden; line-height: 0; }
   .wave-divider svg { display: block; width: 100%; }
 
@@ -234,7 +228,7 @@
   .gain-card:nth-child(3) { background: var(--peach-light); border-color: var(--peach); box-shadow: 0 6px 0 var(--coral); }
   .gain-card:nth-child(4) { background: var(--sky-light); border-color: var(--sky); box-shadow: 0 6px 0 var(--sky-dark); }
   .gain-card:nth-child(5) { background: var(--yellow-light); border-color: var(--yellow); box-shadow: 0 6px 0 var(--yellow-dark); }
-  .gain-card-icon { font-size: 2rem; margin-bottom: 10px; }
+  .gain-card-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
   .gain-card-title { font-family: 'Fredoka One', cursive; font-size: 1.1rem; color: var(--dark); margin-bottom: 6px; }
   .gain-card p { font-size: 0.9rem; color: var(--dark2); font-weight: 600; }
 
@@ -361,12 +355,9 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="logo-bubble">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-    </div>
+    <img src="logo-icon.png" alt="STEM Discovery Club Logo" class="nav-logo-img">
     STEM Discovery Club
   </a>
   <ul class="nav-links">
@@ -375,7 +366,7 @@
     <li><a href="program.html">Programs</a></li>
     <li><a href="events.html">Events</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="volunteer.html">Volunteer</a></li>
+    <li><a href="volunteer.html" class="active">Volunteer</a></li>
     <li><a href="donate.html" class="btn-donate">Donate</a></li>
   </ul>
   <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -384,20 +375,18 @@
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="program.html">Programs</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="volunteer.html" class="active">Volunteer</a></li>
-    <li><a href="donate.html" class="btn-donate">Donate</a></li>
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="about.html">👋 About</a></li>
+    <li><a href="program.html">🔬 Programs</a></li>
+    <li><a href="events.html">📅 Events</a></li>
+    <li><a href="contact.html">✉️ Contact</a></li>
+    <li><a href="volunteer.html" class="active">🤝 Volunteer</a></li>
+    <li><a href="donate.html" class="btn-donate">💛 Donate</a></li>
   </ul>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-badge">Get Involved · San Antonio, TX</div>
   <h1>Become a <em>Volunteer</em> &amp;<br/>Help Spark <span class="sky-word">Curiosity!</span></h1>
@@ -408,14 +397,12 @@
   </div>
 </section>
 
-<!-- WAVE DIVIDER -->
 <div class="wave-divider" style="background:var(--sky-light);">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#FFFDF7"/>
   </svg>
 </div>
 
-<!-- WHAT YOU GAIN -->
 <section class="gain" id="gain">
   <div class="gain-inner">
     <div class="section-label">Why Volunteer</div>
@@ -423,27 +410,27 @@
     <p class="section-desc">Volunteering isn't just about giving back — it's a two-way street. Here's what our volunteers walk away with.</p>
     <div class="gain-grid">
       <div class="gain-card">
-        <div class="gain-card-icon"></div>
+        <span class="gain-card-icon">🛠️</span>
         <div class="gain-card-title">Hands-On Experience</div>
         <p>Mentor and teach younger students in a fun, low-pressure environment that builds real teaching and leadership skills.</p>
       </div>
       <div class="gain-card">
-        <div class="gain-card-icon"></div>
+        <span class="gain-card-icon">📈</span>
         <div class="gain-card-title">Skill Building</div>
         <p>Strengthen communication, leadership, and project management skills that look great on resumes and college applications.</p>
       </div>
       <div class="gain-card">
-        <div class="gain-card-icon"></div>
+        <span class="gain-card-icon">🤝</span>
         <div class="gain-card-title">Community Connections</div>
         <p>Meet educators, parents, and fellow STEM enthusiasts across San Antonio while building a network you'll carry forward.</p>
       </div>
       <div class="gain-card">
-        <div class="gain-card-icon"></div>
+        <span class="gain-card-icon">💖</span>
         <div class="gain-card-title">Personal Fulfillment</div>
         <p>Feel the joy of seeing a student light up when they understand a new concept or finish their first project.</p>
       </div>
       <div class="gain-card">
-        <div class="gain-card-icon"></div>
+        <span class="gain-card-icon">⏰</span>
         <div class="gain-card-title">Flexible Commitment</div>
         <p>Choose a schedule that fits your life — after school, on weekends, or just for special events.</p>
       </div>
@@ -451,7 +438,6 @@
   </div>
 </section>
 
-<!-- WAVE DIVIDER -->
 <div class="wave-divider" style="background:var(--white);">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0,20 C360,60 720,0 1080,40 C1260,55 1380,10 1440,20 L1440,60 L0,60 Z" fill="#B5EAD7" opacity="0.5"/>
@@ -459,7 +445,6 @@
   </svg>
 </div>
 
-<!-- IMPACT -->
 <section class="impact" id="impact">
   <div class="impact-inner">
     <div class="section-label">Your Impact</div>
@@ -467,33 +452,31 @@
     <p class="section-desc">Because our programs are free for families, volunteers directly shape how many students we reach and how great each session feels.</p>
     <div class="impact-list">
       <div class="impact-card">
-        <div class="impact-icon"></div>
+        <div class="impact-icon">✨</div>
         <div class="impact-info"><h3>Sparking New Passions</h3><p>Help a student discover a love for science, tech, engineering, or math they might never find elsewhere.</p></div>
       </div>
       <div class="impact-card">
-        <div class="impact-icon"></div>
+        <div class="impact-icon">💪</div>
         <div class="impact-info"><h3>Building Confidence</h3><p>Guide students through hands-on projects, helping them grow more confident with every experiment.</p></div>
       </div>
       <div class="impact-card">
-        <div class="impact-icon"></div>
+        <div class="impact-icon">🌟</div>
         <div class="impact-info"><h3>Real Role Models</h3><p>Show younger students what's possible by being a relatable, real-life example of someone in STEM.</p></div>
       </div>
       <div class="impact-card">
-        <div class="impact-icon"></div>
+        <div class="impact-icon">🚀</div>
         <div class="impact-info"><h3>Expanding Our Reach</h3><p>More volunteers means more sessions, more students served, and higher-quality programs for everyone.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WAVE DIVIDER -->
 <div class="wave-divider" style="background:var(--mint-light);">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0,30 C360,0 720,60 1080,20 C1260,5 1380,50 1440,30 L1440,60 L0,60 Z" fill="#D6EEFF"/>
   </svg>
 </div>
 
-<!-- HOW TO VOLUNTEER -->
 <section class="steps" id="how-to-volunteer">
   <div class="steps-inner">
     <div class="section-label">Get Started</div>
@@ -533,27 +516,24 @@
   </div>
 </section>
 
-<!-- DONATE / CTA STRIP -->
 <div class="donate-strip">
   <h2>Ready to Make a Difference?</h2>
   <p>Apply today and become part of a community dedicated to inspiring the next generation of STEM leaders.</p>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdILTVtnHBodq6A5rJYXcRbBMVJk0Qfbt5LaIneoZS52s0Ifg/viewform?usp=publish-editor" target="_blank" class="btn-coral">Apply to Volunteer</a>
 </div>
 
-<!-- WAVE DIVIDER -->
 <div class="wave-divider" style="background:var(--dark);">
   <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#2D2A45"/>
   </svg>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="text-decoration:none;">
-          <div class="logo-bubble"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L6.91 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <a href="index.html" class="footer-nav-logo" style="text-decoration:none;">
+          <img src="logo-icon.png" alt="STEM Discovery Club Logo" class="nav-logo-img" style="margin-right: 12px; height: 36px;">
           <span style="font-family:'Fredoka One',cursive; font-size:1.1rem; color:var(--yellow);">STEM Discovery Club</span>
         </a>
         <p>Inspiring young students through engaging STEM programs, mentorship, and hands-on activities in San Antonio.</p>
