@@ -50,7 +50,6 @@
   @keyframes shimmer{to{left:160%}}
   .img-ph{border:3px dashed rgba(255,255,255,0.25);border-radius:var(--radius);background:rgba(255,255,255,0.07);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;transition:transform .25s;}
   .img-ph:hover{border-color:var(--yellow);transform:translateY(-4px);}
-  .img-ph-icon{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1.6rem;}
   .img-ph-label{font-size:0.8rem;font-weight:800;color:rgba(255,255,255,0.7);text-align:center;padding:0 16px;font-family:'Baloo 2',cursive;letter-spacing:.04em;}
   .img-ph-sub{font-size:0.72rem;color:rgba(255,255,255,0.45);font-weight:600;text-align:center;padding:0 16px;}
   .img-ph::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);animation:shimmer 2.8s infinite;}
@@ -92,6 +91,19 @@
   .event-card:nth-child(6) .event-chip{background:var(--peach-light);color:var(--dark);border-color:var(--peach);}
   .event-location{font-size:0.78rem;color:rgba(255,255,255,0.45);font-weight:700;font-family:'Baloo 2',cursive;}
 
+  /* ===== PAST EVENT (GALLERY) ===== */
+  .past-events-section{padding:20px 5vw 80px;background:var(--dark);}
+  .past-events-inner{max-width:1100px;margin:0 auto;}
+  .past-event-feature{background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:30px 32px 34px;transition:border-color .2s;}
+  .past-event-feature:hover{border-color:var(--yellow);}
+  .past-event-date{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);font-family:'Baloo 2',cursive;margin-bottom:8px;}
+  .past-event-feature h3{font-family:'Fredoka One',cursive;font-size:1.5rem;color:#fff;margin-bottom:12px;}
+  .past-event-feature p{font-size:0.94rem;color:rgba(255,255,255,.6);font-weight:600;max-width:680px;margin-bottom:28px;}
+  .past-event-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .gallery-img{aspect-ratio:4/3;}
+  @media(max-width:700px){.past-event-gallery{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:420px){.past-event-gallery{grid-template-columns:1fr;}}
+
   .wave-divider{width:100%;overflow:hidden;line-height:0;}
   .wave-divider svg{display:block;width:100%;}
   footer{background:var(--dark);color:rgba(255,255,255,.55);padding:60px 5vw 32px;}
@@ -131,13 +143,13 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">🏠 Home</a>
-  <a href="about.html">👋 About</a>
-  <a href="program.html">🔬 Programs</a>
-  <a href="events.html" class="active">📅 Events</a>
-  <a href="contact.html">✉️ Contact</a>
-  <a href="volunteer.html">🤝 Volunteer</a>
-  <a href="donate.html" class="btn-donate-mobile">💛 Donate</a>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="program.html">Programs</a>
+  <a href="events.html" class="active">Events</a>
+  <a href="contact.html">Contact</a>
+  <a href="volunteer.html">Volunteer</a>
+  <a href="donate.html" class="btn-donate-mobile">Donate</a>
 </div>
 
 <div class="page-hero">
@@ -158,7 +170,46 @@
         <div class="event-info"><h3>Bake Sale</h3><p>Join us for a fun bake sale to support our STEM programs!</p></div>
         <div class="event-meta">
           <div class="event-chip">Fundraiser</div>
-          <div class="event-location">📍 Triana, Helotes, TX 78023</div>
+          <div class="event-location">Triana, Helotes, TX 78023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="past-events-section">
+  <div class="past-events-inner">
+    <div class="section-label">Looking Back</div>
+    <h2 class="section-title">Past Events</h2>
+    <div class="past-event-feature">
+      <div class="past-event-date">May 2026</div>
+      <h3>Bake Sale</h3>
+      <p>
+      </p>STEM Discovery Club's first bake sale! We raised over a $100 at Triana, Helotes on August 15th, 2026.</p>
+      <div class="past-event-gallery">
+        <div class="img-ph gallery-img">
+          <div class="img-ph-label">EVENT PHOTO</div>
+          <div class="img-ph-sub">Replace with image</div>
+        </div>
+        <div class="img-ph gallery-img">
+          <div class="img-ph-label">EVENT PHOTO</div>
+          <div class="img-ph-sub">Replace with image</div>
+        </div>
+        <div class="img-ph gallery-img">
+          <div class="img-ph-label">EVENT PHOTO</div>
+          <div class="img-ph-sub">Replace with image</div>
+        </div>
+        <div class="img-ph gallery-img">
+          <div class="img-ph-label">EVENT PHOTO</div>
+          <div class="img-ph-sub">Replace with image</div>
+        </div>
+        <div class="img-ph gallery-img">
+          <div class="img-ph-label">EVENT PHOTO</div>
+          <div class="img-ph-sub">Replace with image</div>
+        </div>
+        <div class="img-ph gallery-img">
+          <div class="img-ph-label">EVENT PHOTO</div>
+          <div class="img-ph-sub">Replace with image</div>
         </div>
       </div>
     </div>
@@ -185,7 +236,7 @@
       <div class="footer-col"><h4>Programs</h4><ul><li><a href="program.html">Biology &amp; Chemistry</a></li><li><a href="program.html">Physics &amp; Astronomy</a></li><li><a href="program.html">Plant &amp; Health Science</a></li><li><a href="program.html">Math &amp; Engineering</a></li></ul></div>
       <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate →</a></div>
+    <div class="footer-bottom"><span>© 2026 STEM Discovery Club. Made with care for education in San Antonio.</span><a href="donate.html">Donate</a></div>
   </div>
 </footer>
 
