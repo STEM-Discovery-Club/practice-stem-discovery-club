@@ -59,6 +59,46 @@
  
  
 
+  /* ===== ANNOUNCEMENT BAR ===== */
+  .announce-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 101;
+    background: var(--pink);
+    color: var(--dark);
+    border-bottom: 3px solid var(--pink-dark);
+    padding: 10px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .announce-bar a {
+    color: var(--dark);
+    text-decoration: underline;
+  }
+  .announce-close {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--dark);
+    padding: 0 4px;
+  }
+  .announce-bar.hidden { display: none; }
+
+  body.has-announce nav { top: 44px; }
+  body.has-announce .hero { padding-top: 174px; }
+
+  @media(max-width: 480px) {
+    .announce-bar { font-size: 0.8rem; padding: 10px 4vw; }
+  }
+
   /* ===== NAV ===== */
   nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -68,6 +108,7 @@
   padding: 0 5vw;
   display: flex; align-items: center; justify-content: space-between;
   height: 68px;
+  transition: top .2s;
   }
   .nav-logo {
   font-family: 'Fredoka One', cursive;
@@ -212,6 +253,7 @@
   padding: 130px 5vw 90px;
   position: relative; overflow: hidden;
   background: var(--sky-light);
+  transition: padding-top .2s;
   }
   .hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background-image: radial-gradient(circle, rgba(180,160,240,0.18) 2px, transparent 2px); background-size: 32px 32px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--yellow); color: var(--dark); border: 2.5px solid var(--yellow-dark); padding: 7px 20px; border-radius: var(--radius-pill); font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1.8rem; font-family: 'Baloo 2', cursive; box-shadow: 0 4px 0 var(--yellow-dark); position: relative; z-index: 1; }
@@ -376,6 +418,11 @@
 </style>
 </head>
 <body>
+
+<div class="announce-bar" id="announceBar">
+  <span> First Session Coming Up Soon! <a href="events.html">See details →</a></span>
+  <button class="announce-close" id="announceClose" aria-label="Close announcement">&times;</button>
+</div>
 
 <nav>
   <a href="index.html" class="nav-logo">
@@ -607,6 +654,15 @@
 </footer>
 
 <script>
+  const announceBar = document.getElementById('announceBar');
+  const announceClose = document.getElementById('announceClose');
+  document.body.classList.add('has-announce');
+
+  announceClose.addEventListener('click', () => {
+    announceBar.classList.add('hidden');
+    document.body.classList.remove('has-announce');
+  });
+
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => {
