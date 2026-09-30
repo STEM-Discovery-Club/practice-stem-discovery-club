@@ -95,6 +95,7 @@
   .past-events-section{padding:20px 5vw 80px;background:var(--dark);}
   .past-events-inner{max-width:1100px;margin:0 auto;}
   .past-event-feature{background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:30px 32px 34px;transition:border-color .2s;}
+  .past-event-feature + .past-event-feature{margin-top:24px;}
   .past-event-feature:hover{border-color:var(--yellow);}
   .past-event-date{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);font-family:'Baloo 2',cursive;margin-bottom:8px;}
   .past-event-feature h3{font-family:'Fredoka One',cursive;font-size:1.5rem;color:#fff;margin-bottom:12px;}
@@ -166,14 +167,6 @@
     <h2 class="section-title">Upcoming Events</h2>
     <div class="events-list">
       <div class="event-card">
-        <div class="event-date"><div class="month">September</div><div class="day">26th</div></div>
-        <div class="event-info"><h3>Bake Sale</h3><p>Bake Sale from 2 PM to 6PM!</p></div>
-        <div class="event-meta">
-          <div class="event-chip">Fundraiser</div>
-          <div class="event-location">Davis Ranch, San Antonio TX, 78254</div>
-        </div>
-      </div>
-      <div class="event-card">
         <div class="event-date"><div class="month">October</div><div class="day">TBD</div></div>
         <div class="event-info"><h3>First Session!</h3><p>Join us for our first ever session!</p></div>
         <div class="event-meta">
@@ -189,6 +182,20 @@
   <div class="past-events-inner">
     <div class="section-label">Looking Back</div>
     <h2 class="section-title">Past Events</h2>
+
+    <div class="past-event-feature">
+      <div class="past-event-date">September 2026</div>
+      <h3>Bake Sale</h3>
+      <p>
+      STEM Discovery Club's bake sale at Davis Ranch in San Antonio on September 26th, 2026.</p>
+    <div class="past-event-gallery">
+  <img src="photo1.jpeg" alt="Bake sale event photo" class="gallery-img" style="width: 100%; object-fit: cover; border-radius: var(--radius);">
+  <img src="photo2.jpeg" alt="Bake sale event photo" class="gallery-img" style="width: 100%; object-fit: cover; border-radius: var(--radius);">
+  <img src="photo3.jpeg" alt="Bake sale event photo" class="gallery-img" style="width: 100%; object-fit: cover; border-radius: var(--radius);">
+        </div>
+      </div>
+    </div>
+
     <div class="past-event-feature">
       <div class="past-event-date">August 2026</div>
       <h3>Bake Sale</h3>
