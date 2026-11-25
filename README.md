@@ -43,7 +43,7 @@ Because this is a static HTML website, no build tools or dependencies are requir
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com
+   git clone https://github.com https://stem-discovery-club.github.io/practice-stem-discovery-club/
    ```
 2. Open `index.html` directly in any web browser, or use a local development server such as the **Live Server** extension in VS Code.
 
