@@ -1,21 +1,19 @@
 # STEM Discovery Club
 
-**Inspiring Young Minds Through STEM Discovery!**
+A student led organization based in San Antonio, TX, dedicated to sparking curiosity, building foundational skills, and expanding access to early STEM enrichment through hands-on learning experiences.
 
-A youth-led initiative based in San Antonio, TX, dedicated to sparking curiosity, building foundational skills, and expanding access to early STEM enrichment through hands-on learning experiences.
-
-** Website Link :** [https://stem-discovery-club.github.io/practice-stem-discovery-club/](https://stem-discovery-club.github.io/practice-stem-discovery-club/)
+Website Link :[https://stem-discovery-club.github.io/practice-stem-discovery-club/](https://stem-discovery-club.github.io/practice-stem-discovery-club/)
 
 ---
 
 ## About the Organization
 
-**STEM Discovery Club** is run by high school student leaders who want to make a meaningful impact in the San Antonio community. Many students have the drive to excel in STEM but lack early exposure to enrichment programs. Our mission is to bridge that gap by hosting accessible, engaging, and hands-on workshops for young students.
+STEM Discovery Club is run by high school student leaders who want to make a meaningful impact in the San Antonio community. Many students have the drive to excel in STEM but lack early exposure to enrichment programs. Our mission is to bridge that gap by hosting accessible, engaging, and hands-on workshops for young students.
 
-### Core Program Areas
-* **Science Explorations:** Guided experiments and interactive activities that bring scientific concepts to life.
-* **Engineering Challenges:** Team-based design, building, and testing projects focused on real-world problem-solving.
-* **Math in Action:** Practical games, puzzles, and collaborative activities that make math fun and intuitive.
+### What We Do
+Guided experiments and interactive activities that bring scientific concepts to life.
+Team-based design, building, and testing projects focused on real-world problem-solving.
+Practical games, puzzles, and collaborative activities that make math fun and intuitive.
 
 ---
 
@@ -53,10 +51,9 @@ Because this is a static HTML website, no build tools or dependencies are requir
 
 ## Get Involved & Contact
 
-* **Website:** [stem-discovery-club.github.io/practice-stem-discovery-club](https://stem-discovery-club.github.io/practice-stem-discovery-club/)
-* **Email:** [stemdiscoveryteam@gmail.com](mailto:stemdiscoveryteam@gmail.com)
-* **Location:** San Antonio, Texas
-
+Website: [stem-discovery-club.github.io/practice-stem-discovery-club](https://stem-discovery-club.github.io/practice-stem-discovery-club/)
+Email: [stemdiscoveryteam@gmail.com](mailto:stemdiscoveryteam@gmail.com)
+Instagram: @stemdicoveryclub
 ---
 
 © 2026 STEM Discovery Club. Made with care for education in San Antonio.
